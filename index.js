@@ -27,7 +27,7 @@ function getStateInfo() {
 function displayResults(responseJson) {
   $('.results').empty();
   for (let i = 0; i < responseJson.data.length; i++){
-//    $('.results').append(`<p>${responseJson.data[i].fullName}</p>
+//    $('.results').append(`<p>${responseJson.data[i].stats}</p>
 //      <p><a href="${responseJson.data[i].url}" target="_blank">${responseJson.data[i].url}</a></p>
 //      <p>${responseJson.data[i].description}</p>
 //      <p>${responseJson.data[i].directionsInfo}</p>

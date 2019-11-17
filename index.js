@@ -5,11 +5,11 @@ function watchForm() {
 })};
 
 function getStateInfo() {
-  let APIKey = "x";
-  let endpoint = "https://api.census.gov/data/2010/dec/slf?";
-  let state = $('.state').val();
-  let numbers = $('.secondinput').val();
-  let url = `${endpoint}get=${numbers}&for=state:${state}&key=${APIKey}`
+  let APIKey = "12ba7d01dfe85e9b84c731fceefc830022291a8f";
+  let endpoint = "https://api.census.gov/data/2010/dec/sf1?";
+  let stateid = $('.state').val();
+  let secondinput = $('.secondinput').val();
+  let url = `${endpoint}get=${secondinput}&for=state:${stateid}&key=${APIKey}`
   console.log(url);
 //  fetch(url)
 //    .then(response => {
@@ -27,7 +27,7 @@ function getStateInfo() {
 function displayResults(responseJson) {
   $('.results').empty();
   for (let i = 0; i < responseJson.data.length; i++){
-//    $('.results').append(`<p>${responseJson.data[i].stats}</p>
+//    $('.results').append(`<p>${responseJson.data[i].fullName}</p>
 //      <p><a href="${responseJson.data[i].url}" target="_blank">${responseJson.data[i].url}</a></p>
 //      <p>${responseJson.data[i].description}</p>
 //      <p>${responseJson.data[i].directionsInfo}</p>

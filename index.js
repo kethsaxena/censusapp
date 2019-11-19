@@ -1,59 +1,147 @@
 function watchForm() {
-  $('.stateEntry').submit(function(e) {
-  e.preventDefault();
-  getStateInfo();
-})};
+  $('.totalInput').submit(function (e) {
+    e.preventDefault();
+    getStateInfo();
+  })
+};
+
+function collapseExpand() {
+  $('.plussign1').click(function () {
+    $('.checkboxchild1').toggle();
+  });
+  $('.plussign2').click(function () {
+    $('.checkboxchild2').toggle();
+  });
+}
 
 function getStateInfo() {
   let APIKey = "12ba7d01dfe85e9b84c731fceefc830022291a8f";
   let endpoint = "https://api.census.gov/data/2010/dec/sf1?";
-  let stateid = $('.state').val();
-  let secondinput = $('.secondinput').val();
-  let url = `${endpoint}get=${secondinput}&for=state:${stateid}&key=${APIKey}`
+
+  let checkedrace = [];
+
+  $('input[name=race]:checked').each(function () {
+    checkedrace.push($(this).val()); 
+  });
+
+  let raceid = checkedrace.join(",");
+
+  let checkedstate = [];
+
+  $('input[name=state]:checked').each(function () {
+    checkedstate.push($(this).val()); 
+  });
+
+  let stateid = checkedstate.join(",");
+
+  let url = `${endpoint}get=${raceid}&for=state:${stateid}&key=${APIKey}`
   console.log(url);
-//  fetch(url)
-//    .then(response => {
-//      if (response.ok) {
-//        return response.json();
-//};
-//        throw new Error(response.statusText);
-//})
-//    .then(response => response.json())
-//    .then(responseJson => 
-//      displayResults(responseJson))
-//    .catch(error => alert('Something went wrong.'));
+  
+//for (let i = 0; i < items.length; i++) {
+//  let checked = [];
+//  checked += items[i];
+//  checked.push(items[i]);
+//}
+ 
+
+//$('input[name=race]:checked').each(function () {
+//  let id = $(this).attr("value");
+//  $('.results').replaceWith(id);
+//});
+
+//function getChecked() {
+//  let items = $('input[name=race]');
+//  let checkedItems = "";
+// 	  for (let i = 0; i < items.length; i++){
+//       if (items[i].type === 'checkbox' && items[i].checked === true) {
+//       checkedItems += items[i].value;
+//}}
+//   console.log(checkedItems);
+
+ fetch(url)
+   .then(response => {
+     if (response.ok) {
+       return response.json();
+};
+       throw new Error(response.statusText);
+})
+   .then(response => response.json())
+   .then(responseJson => 
+     displayResults(responseJson))
+   .catch(error => alert('Something went wrong.'));
 }
+
 
 function displayResults(responseJson) {
   $('.results').empty();
-  for (let i = 0; i < responseJson.data.length; i++){
-//    $('.results').append(`<p>${responseJson.data[i].fullName}</p>
+  for (let i = 0; i < responseJson.data.length; i++) {
+    $('.results').append(`<p>${responseJson[i]}</p>`
 //      <p><a href="${responseJson.data[i].url}" target="_blank">${responseJson.data[i].url}</a></p>
 //      <p>${responseJson.data[i].description}</p>
 //      <p>${responseJson.data[i].directionsInfo}</p>
 //      <p><a href="${responseJson.data[i].directionsUrl}" target="_blank">${responseJson.data[i].directionsUrl}</a></p>
 //      <p>${responseJson.data[i].latLong}</p>
 //      <hr>`
-    };
-  $('.results').removeClass('hidden');
+    )
+  };
+//  $('.results').removeClass('hidden');
 };
 
-$(function() {
-  watchForm();
+//////////////////////////////////////////////////////////////////////////////////// javascript for checkboxes
+
+$('input[type="checkbox"]').change(function (e) {
+
+  var checked = $(this).prop("checked"),
+    container = $(this).parent(),
+    siblings = container.siblings();
+
+  container.find('input[type="checkbox"]').prop({
+    indeterminate: false,
+    checked: checked
+  });
+
+  function checkSiblings(el) {
+
+    var parent = el.parent().parent(),
+      all = true;
+
+    el.siblings().each(function () {
+      let returnValue = all = ($(this).children('input[type="checkbox"]').prop("checked") === checked);
+      return returnValue;
+    });
+
+    if (all && checked) {
+
+      parent.children('input[type="checkbox"]').prop({
+        indeterminate: false,
+        checked: checked
+      });
+
+      checkSiblings(parent);
+
+    } else if (all && !checked) {
+
+      parent.children('input[type="checkbox"]').prop("checked", checked);
+      parent.children('input[type="checkbox"]').prop("indeterminate", (parent.find('input[type="checkbox"]:checked').length > 0));
+      checkSiblings(parent);
+
+    } else {
+
+      el.parents("li").children('input[type="checkbox"]').prop({
+        indeterminate: true,
+        checked: false
+      });
+
+    }
+
+  }
+
+//////////////////////////////////////////////////////////////////////////////////// end javascript for checkboxes
+
+  checkSiblings(container);
 });
 
-//function pull(query, limit=10) {
-//  let params = {
-//    code: state,
-//    key: APIKey,
-//    max,
-//  };
-//  let queryString = formatQueryParams(params)
-//  let url = endpoint + '?' + queryString;
-//}
-
-//function formatQueryParams(params) {
-//  let queryItems = Object.keys(params)
-//    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
-//  return queryItems.join('&');
-//}
+$(function () {
+  watchForm();
+  collapseExpand();
+});

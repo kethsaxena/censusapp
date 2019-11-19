@@ -18,21 +18,30 @@ function getStateInfo() {
   let APIKey = "12ba7d01dfe85e9b84c731fceefc830022291a8f";
   let endpoint = "https://api.census.gov/data/2010/dec/sf1?";
 
-  let checkedrace = [];
-  $('input[name=race]:checked').each(function () {
-    checkedrace.push($(this).val());
-  });
-  console.log();
-  let raceid = checkedrace.join(",");
-
   let checkedstate = [];
+  let whichstate = [];
   $('input[name=state]:checked').each(function () {
     checkedstate.push($(this).val());
+    whichstate.push($(this).attr("id"));
   });
   let stateid = checkedstate.join(",");
 
-  numCheckedStates = $('input[name=state]:checked').length + 1;
-  numCheckedRaces = $('input[name=race]:checked').length + 1;
+  console.log(stateid);
+  console.log(whichstate);
+
+  let checkedrace = [];
+  let whichrace = [];
+  $('input[name=race]:checked').each(function () {
+    checkedrace.push($(this).val());
+    whichrace.push($(this).attr("id"));
+  });
+  let raceid = checkedrace.join(",");
+
+  console.log(raceid)
+  console.log(whichrace);
+
+  numCheckedStates = $('input[name=state]:checked').length;
+  numCheckedRaces = $('input[name=race]:checked').length;
 
   let url = `${endpoint}get=${raceid}&for=state:${stateid}&key=${APIKey}`
   console.log(url);
@@ -76,16 +85,20 @@ function displayResults(responseJson) {
   let x1 = [];
   for (let i = 0; i < data1[0].length; i++) {
     x1.push(data1[0][i]);
+    x11 = x1.slice(0, -1);
   }
 
   let x2 = [];
   for (i in data1[1]) {
     x2.push(data1[1][i]);
+    x21 = x2.slice(0, -1);
   }
 
   console.log(data1[0][0]);
   console.log(x1);
   console.log(x2);
+  console.log(x11);
+  console.log(x21);
 
 };
 

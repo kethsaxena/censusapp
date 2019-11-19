@@ -19,54 +19,34 @@ function getStateInfo() {
   let endpoint = "https://api.census.gov/data/2010/dec/sf1?";
 
   let checkedrace = [];
-
   $('input[name=race]:checked').each(function () {
-    checkedrace.push($(this).val()); 
+    checkedrace.push($(this).val());
   });
-
+  console.log();
   let raceid = checkedrace.join(",");
 
   let checkedstate = [];
-
   $('input[name=state]:checked').each(function () {
-    checkedstate.push($(this).val()); 
+    checkedstate.push($(this).val());
   });
-
   let stateid = checkedstate.join(",");
+
+  numCheckedStates = $('input[name=state]:checked').length + 1;
+  numCheckedRaces = $('input[name=race]:checked').length + 1;
 
   let url = `${endpoint}get=${raceid}&for=state:${stateid}&key=${APIKey}`
   console.log(url);
-  
-//for (let i = 0; i < items.length; i++) {
-//  let checked = [];
-//  checked.push(items[i]);
-//}
- 
 
-//$('input[name=race]:checked').each(function () {
-//  let id = $(this).attr("value");
-//  $('.results').replaceWith(id);
-//});
-
-//function getChecked() {
-//  let items = $('input[name=race]');
-//  let checkedItems = "";
-// 	  for (let i = 0; i < items.length; i++){
-//       if (items[i].type === 'checkbox' && items[i].checked === true) {
-//       checkedItems += items[i].value;
-//}}
-//   console.log(checkedItems);
-
- fetch(url)
-   .then(response => {
-     if (response.ok) {
-       return response.json();
-};
-       throw new Error(response.statusText);
-})
-   .then(responseJson => 
-     displayResults(responseJson))
-   .catch(error => console.log(error));
+  fetch(url)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      };
+      throw new Error(response.statusText);
+    })
+    .then(responseJson =>
+      displayResults(responseJson))
+    .catch(error => console.log(error));
 }
 
 
@@ -74,24 +54,30 @@ function displayResults(responseJson) {
   $('.results').empty();
   console.log(responseJson);
   const headings = responseJson[0];
-  let table = `<table><tr>${headings.map(h => `<th>${h}</th>`).join('')}</tr>`
-  console.log(table);
+  console.log(headings);
+  //  let table = `<table><tr>${headings.map(h => `<th>${h}</th>`).join('')}</tr>`
+  //  console.log(table);
+  let table = "<table>";
+  let data1 = [];
   for (let i = 0; i < responseJson.length; i++) {
-     table += `<tr>${responseJson[i].map(h => `<th>${h}</th>`).join('')}</tr>`
-    $('.results').append(`<p>${responseJson[i]}</p>`
-//      <p><a href="${responseJson.data[i].url}" target="_blank">${responseJson.data[i].url}</a></p>
-//      <p>${responseJson.data[i].description}</p>
-//      <p>${responseJson.data[i].directionsInfo}</p>
-//      <p><a href="${responseJson.data[i].directionsUrl}" target="_blank">${responseJson.data[i].directionsUrl}</a></p>
-//      <p>${responseJson.data[i].latLong}</p>
-//      <hr>`
-    )
+    table += `<tr>${responseJson[i].map(h => `<th>${h}</th>`).join('')}</tr>`
+    data1.push(`${responseJson[i]}`);
   };
   table += `</table>`
   console.log(table);
   $('.results').append(table);
-//  $('.results').removeClass('hidden');
+
+  console.log(data1);
+
+  console.log(numCheckedStates);
+  console.log(numCheckedRaces);
+
+  for (i = 0; i < data1.length; i++) {
+    console.log(data1[i]);
+  }
 };
+
+
 
 /////////////////////// javascript for checkboxes
 
@@ -142,10 +128,10 @@ $('input[type="checkbox"]').change(function (e) {
 
   }
 
-////////////////////// end javascript for checkboxes
-
   checkSiblings(container);
 });
+
+////////////////////// end javascript for checkboxes
 
 $(function () {
   watchForm();

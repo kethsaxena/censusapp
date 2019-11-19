@@ -18,18 +18,27 @@ function getStateInfo() {
   let APIKey = "12ba7d01dfe85e9b84c731fceefc830022291a8f";
   let endpoint = "https://api.census.gov/data/2010/dec/sf1?";
 
-  let checkedrace = [];
-  $('input[name=race]:checked').each(function () {
-    checkedrace.push($(this).val());
-  });
-  console.log();
-  let raceid = checkedrace.join(",");
-
   let checkedstate = [];
+  let whichstate = [];
   $('input[name=state]:checked').each(function () {
     checkedstate.push($(this).val());
+    whichstate.push($(this).attr("id"));
   });
   let stateid = checkedstate.join(",");
+
+  console.log(stateid);
+  console.log(whichstate);
+
+  let checkedrace = [];
+  let whichrace = [];
+  $('input[name=race]:checked').each(function () {
+    checkedrace.push($(this).val());
+    whichrace.push($(this).attr("id"));
+  });
+  let raceid = checkedrace.join(",");
+
+  console.log(raceid)
+  console.log(whichrace);
 
   numCheckedStates = $('input[name=state]:checked').length + 1;
   numCheckedRaces = $('input[name=race]:checked').length + 1;

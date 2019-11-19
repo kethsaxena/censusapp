@@ -39,7 +39,6 @@ function getStateInfo() {
   
 //for (let i = 0; i < items.length; i++) {
 //  let checked = [];
-//  checked += items[i];
 //  checked.push(items[i]);
 //}
  
@@ -65,16 +64,20 @@ function getStateInfo() {
 };
        throw new Error(response.statusText);
 })
-   .then(response => response.json())
    .then(responseJson => 
      displayResults(responseJson))
-   .catch(error => alert('Something went wrong.'));
+   .catch(error => console.log(error));
 }
 
 
 function displayResults(responseJson) {
   $('.results').empty();
-  for (let i = 0; i < responseJson.data.length; i++) {
+  console.log(responseJson);
+  const headings = responseJson[0];
+  let table = `<table><tr>${headings.map(h => `<th>${h}</th>`).join('')}</tr>`
+  console.log(table);
+  for (let i = 0; i < responseJson.length; i++) {
+     table += `<tr>${responseJson[i].map(h => `<th>${h}</th>`).join('')}</tr>`
     $('.results').append(`<p>${responseJson[i]}</p>`
 //      <p><a href="${responseJson.data[i].url}" target="_blank">${responseJson.data[i].url}</a></p>
 //      <p>${responseJson.data[i].description}</p>
@@ -84,10 +87,13 @@ function displayResults(responseJson) {
 //      <hr>`
     )
   };
+  table += `</table>`
+  console.log(table);
+  $('.results').append(table);
 //  $('.results').removeClass('hidden');
 };
 
-//////////////////////////////////////////////////////////////////////////////////// javascript for checkboxes
+/////////////////////// javascript for checkboxes
 
 $('input[type="checkbox"]').change(function (e) {
 
@@ -136,7 +142,7 @@ $('input[type="checkbox"]').change(function (e) {
 
   }
 
-//////////////////////////////////////////////////////////////////////////////////// end javascript for checkboxes
+////////////////////// end javascript for checkboxes
 
   checkSiblings(container);
 });

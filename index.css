@@ -2,7 +2,15 @@
   display: flex;
   justify-content: center;
 }
-
+  
 .results {
   margin: 40px 100px
+}
+
+.plussign:hover {
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
 }

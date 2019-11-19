@@ -73,6 +73,20 @@ function displayResults(responseJson) {
   console.log(numCheckedStates);
   console.log(numCheckedRaces);
 
+  let x1 = [];
+  for (let i = 0; i < data1[0].length; i++) {
+    x1.push(data1[0][i]);
+  }
+
+  let x2 = [];
+  for (i in data1[1]) {
+    x2.push(data1[1][i]);
+  }
+
+  console.log(data1[0][0]);
+  console.log(x1);
+  console.log(x2);
+
 };
 
 /////////////////////// javascript for checkboxes

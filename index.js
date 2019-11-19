@@ -53,15 +53,16 @@ function getStateInfo() {
 function displayResults(responseJson) {
   $('.results').empty();
   console.log(responseJson);
+  console.log(responseJson[1][0]);
   //  const headings = responseJson[0];
   //  console.log(headings);
   //  let table = `<table><tr>${headings.map(h => `<th>${h}</th>`).join('')}</tr>`
   //  console.log(table);
   let table = "<table>";
   let data1 = [];
-  for (let i = 0; i < responseJson.length; i++) {
+  for (let i = 1; i < responseJson.length; i++) {
     table += `<tr>${responseJson[i].map(h => `<th>${h}</th>`).join('')}</tr>`
-    data1.push(`${responseJson[i]}`);
+    data1.push(responseJson[i]);
   };
   table += `</table>`
 //  console.log(table);
@@ -72,13 +73,21 @@ function displayResults(responseJson) {
   console.log(numCheckedStates);
   console.log(numCheckedRaces);
 
-  for (i = 0; i < data1.length; i++) {
-
+  let x1 = [];
+  for (let i = 0; i < data1[0].length; i++) {
+    x1.push(data1[0][i]);
   }
 
+  let x2 = [];
+  for (i in data1[1]) {
+    x2.push(data1[1][i]);
+  }
+
+  console.log(data1[0][0]);
+  console.log(x1);
+  console.log(x2);
+
 };
-
-
 
 /////////////////////// javascript for checkboxes
 

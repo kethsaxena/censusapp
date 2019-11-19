@@ -36,34 +36,14 @@ function getStateInfo() {
 
   let url = `${endpoint}get=${raceid}&for=state:${stateid}&key=${APIKey}`
   console.log(url);
-  
-//for (let i = 0; i < items.length; i++) {
-//  let checked = [];
-//  checked.push(items[i]);
-//}
- 
 
-//$('input[name=race]:checked').each(function () {
-//  let id = $(this).attr("value");
-//  $('.results').replaceWith(id);
-//});
-
-//function getChecked() {
-//  let items = $('input[name=race]');
-//  let checkedItems = "";
-// 	  for (let i = 0; i < items.length; i++){
-//       if (items[i].type === 'checkbox' && items[i].checked === true) {
-//       checkedItems += items[i].value;
-//}}
-//   console.log(checkedItems);
-
- fetch(url)
+  fetch(url)
    .then(response => {
      if (response.ok) {
        return response.json();
-};
+      };
        throw new Error(response.statusText);
-})
+    })
    .then(responseJson => 
      displayResults(responseJson))
    .catch(error => console.log(error));

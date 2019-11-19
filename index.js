@@ -53,8 +53,8 @@ function getStateInfo() {
 function displayResults(responseJson) {
   $('.results').empty();
   console.log(responseJson);
-  const headings = responseJson[0];
-  console.log(headings);
+  //  const headings = responseJson[0];
+  //  console.log(headings);
   //  let table = `<table><tr>${headings.map(h => `<th>${h}</th>`).join('')}</tr>`
   //  console.log(table);
   let table = "<table>";
@@ -64,7 +64,7 @@ function displayResults(responseJson) {
     data1.push(`${responseJson[i]}`);
   };
   table += `</table>`
-  console.log(table);
+//  console.log(table);
   $('.results').append(table);
 
   console.log(data1);
@@ -73,8 +73,9 @@ function displayResults(responseJson) {
   console.log(numCheckedRaces);
 
   for (i = 0; i < data1.length; i++) {
-    console.log(data1[i]);
+
   }
+
 };
 
 

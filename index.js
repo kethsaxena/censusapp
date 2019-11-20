@@ -25,6 +25,7 @@ function getStateInfo() {
     whichstate.push($(this).attr("id"));
   });
   let stateid = checkedstate.join(",");
+  stateArray = checkedstate.join(", ");
 
   console.log(stateid);
   console.log(whichstate);
@@ -36,6 +37,7 @@ function getStateInfo() {
     whichrace.push($(this).attr("id"));
   });
   let raceid = checkedrace.join(",");
+  raceArray = checkedrace.join(", ");
 
   console.log(raceid)
   console.log(whichrace);
@@ -99,6 +101,13 @@ function displayResults(responseJson) {
   console.log(x2);
   console.log(x11);
   console.log(x21);
+
+  $('.results2').html(`
+    ${stateArray}<br>
+    ${x11}<br>
+    ${raceArray}<br>
+    ${x21}<br>
+    `);
 
 };
 

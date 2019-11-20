@@ -60,7 +60,6 @@ function getStateInfo() {
     .catch(error => console.log(error));
 }
 
-
 function displayResults(responseJson) {
   $('.results').empty();
   $('.results2').empty();

@@ -83,7 +83,6 @@ function displayResults(responseJson) {
   console.log(data1);
 
   let results = [];
-  
   for (let i = 1; i < (responseJson.length - 0); i++) {
     for (let key in responseJson[i]) {
       console.log(responseJson[i][key])

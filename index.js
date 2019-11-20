@@ -69,7 +69,7 @@ function displayResults(responseJson) {
   //  console.log(headings);
   //  let table = `<table><tr>${headings.map(h => `<th>${h}</th>`).join('')}</tr>`
   //  console.log(table);
-  let table = "<table>";
+  let table = `<table>`;
   let data1 = [];
   for (let i = 1; i < responseJson.length; i++) {
     table += `<tr>${responseJson[i].map(h => `<th>${h}</th>`).join('')}</tr>`
@@ -106,13 +106,15 @@ function displayResults(responseJson) {
   console.log(x1);
   console.log(x2);
   console.log(x11);
-  console.log(x21);
+  //console.log(${x21});
+  //console.log(${x31});
 
   $('.results2').html(`
     ${whichstate}<br>
-    ${x11}<br>
     ${whichrace}<br>
+    ${x11}<br>
     ${x21}<br>
+    ${x31}
     `);
 
 };

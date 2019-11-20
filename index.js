@@ -63,6 +63,7 @@ function getStateInfo() {
 
 function displayResults(responseJson) {
   $('.results').empty();
+  $('.results2').empty();
   console.log(responseJson);
   console.log(responseJson[1][0]);
   //  const headings = responseJson[0];
@@ -81,41 +82,52 @@ function displayResults(responseJson) {
 
   console.log(data1);
 
-  console.log(numCheckedStates);
-  console.log(numCheckedRaces);
-
-  let x1 = [];
-  for (let i = 0; i < data1[0].length; i++) {
-    x1.push(data1[0][i]);
-    x11 = x1.slice(0, -1);
+  let results = [];
+  
+  for (let i = 1; i < (responseJson.length - 0); i++) {
+    for (let key in responseJson[i]) {
+      console.log(responseJson[i][key])
+      $('.results2').append(`${responseJson[i][key]}`)
+      results.push(`${responseJson[i][key]}`)
+    }
   }
+  console.log(results)
 
-  let x2 = [];
-  for (i in data1[1]) {
-    x2.push(data1[1][i]);
-    x21 = x2.slice(0, -1);
-  }
+  // console.log(numCheckedStates);
+  // console.log(numCheckedRaces);
+  //
+  // let x1 = [];
+  // for (let i = 0; i < data1[0].length; i++) {
+  //   x1.push(data1[0][i]);
+  //   x11 = x1.slice(0, -1);
+  // }
 
-  let x3 = [];
-  for (i in data1[2]) {
-    x3.push(data1[2][i]);
-    x31 = x3.slice(0, -1);
-  }
+  // let x2 = [];
+  // for (i in data1[1]) {
+  //   x2.push(data1[1][i]);
+  //   x21 = x2.slice(0, -1);
+  // }
 
-  console.log(data1[0][0]);
-  console.log(x1);
-  console.log(x2);
-  console.log(x11);
-  //console.log(${x21});
-  //console.log(${x31});
+  // let x3 = [];
+  // for (i in data1[2]) {
+  //   x3.push(data1[2][i]);
+  //   x31 = x3.slice(0, -1);
+  // }
 
-  $('.results2').html(`
-    ${whichstate}<br>
-    ${whichrace}<br>
-    ${x11}<br>
-    ${x21}<br>
-    ${x31}
-    `);
+  // console.log(data1[0][0]);
+  // console.log(x1);
+  // console.log(x2);
+  // console.log(x11);
+  // //console.log(${x21});
+  // //console.log(${x31});
+
+  // $('.results2').html(`
+  //   ${whichstate}<br>
+  //   ${whichrace}<br>
+  //   ${x11}<br>
+  //   ${x21}<br>
+  //   ${x31}
+  //   `);
 
 };
 

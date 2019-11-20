@@ -19,25 +19,25 @@ function getStateInfo() {
   let endpoint = "https://api.census.gov/data/2010/dec/sf1?";
 
   let checkedstate = [];
-  let whichstate = [];
+  whichstate = [];
   $('input[name=state]:checked').each(function () {
     checkedstate.push($(this).val());
     whichstate.push($(this).attr("id"));
   });
   let stateid = checkedstate.join(",");
-  stateArray = checkedstate.join(", ");
+  let stateArray = checkedstate.join(", ");
 
   console.log(stateid);
   console.log(whichstate);
 
   let checkedrace = [];
-  let whichrace = [];
+  whichrace = [];
   $('input[name=race]:checked').each(function () {
     checkedrace.push($(this).val());
     whichrace.push($(this).attr("id"));
   });
   let raceid = checkedrace.join(",");
-  raceArray = checkedrace.join(", ");
+  let raceArray = checkedrace.join(", ");
 
   console.log(raceid)
   console.log(whichrace);
@@ -96,6 +96,12 @@ function displayResults(responseJson) {
     x21 = x2.slice(0, -1);
   }
 
+  let x3 = [];
+  for (i in data1[2]) {
+    x3.push(data1[2][i]);
+    x31 = x3.slice(0, -1);
+  }
+
   console.log(data1[0][0]);
   console.log(x1);
   console.log(x2);
@@ -103,9 +109,9 @@ function displayResults(responseJson) {
   console.log(x21);
 
   $('.results2').html(`
-    ${stateArray}<br>
+    ${whichstate}<br>
     ${x11}<br>
-    ${raceArray}<br>
+    ${whichrace}<br>
     ${x21}<br>
     `);
 

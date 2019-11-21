@@ -21,6 +21,10 @@ function getStateInfo() {
   let APIKey = "12ba7d01dfe85e9b84c731fceefc830022291a8f";
   let endpoint = "https://api.census.gov/data/2010/dec/sf1?";
 
+  numCheckedStates = $('input[name=state]:checked').length;
+  numCheckedRaces = $('input[name=race]:checked').length;
+  numCheckedSexes = $('input[name=sex]:checked').length;
+
   let checkedstate = [];
   whichstate = [];
   $('input[name=state]:checked').each(function () {
@@ -31,9 +35,9 @@ function getStateInfo() {
   let stateArray = checkedstate.join(", ");
 
 //  console.log(stateid);
-  console.log(whichstate);
+//  console.log(whichstate);
 
-  let checkedrace = [];
+  checkedrace = [];
   whichrace = [];
   $('input[name=race]:checked').each(function () {
     checkedrace.push($(this).val());
@@ -42,11 +46,15 @@ function getStateInfo() {
   let raceid = checkedrace.join(",");
   let raceArray = checkedrace.join(", ");
 
-  if (checkedstate == "") {
+  let comma = "";
+  if (numCheckedStates === 0) {
     alert("Please choose one or more States.");
   }
+  if (numCheckedRaces !== 0) {
+    comma += ",";
+  }
 
-  let checkedsexes = [];
+  checkedsexes = [];
   whichsexes = [];
   $('input[name=sex]:checked').each(function () {
     checkedsexes.push($(this).val());
@@ -56,13 +64,9 @@ function getStateInfo() {
   let sexArray = checkedsexes.join(", ");
 
 //  console.log(raceid)
-  console.log(whichrace);
+//  console.log(whichrace);
 
-  numCheckedStates = $('input[name=state]:checked').length;
-  numCheckedRaces = $('input[name=race]:checked').length;
-  numCheckedSexes = $('input[name=sex]:checked').length;
-
-  let url = `${endpoint}get=${raceid}&for=state:${stateid}&key=${APIKey}`;
+  let url = `${endpoint}get=${raceid}${comma}${sexid}&for=state:${stateid}&key=${APIKey}`;
   console.log(url);
 
   fetch(url)
@@ -81,25 +85,30 @@ function displayResults(responseJson) {
   $('.resultsStates').empty();
   $('.resultsRaces').empty();
   $('.resultsSexes').empty();
-  //  let results = [];
-  let values = [];
-  for (let i = 1; i < (responseJson.length - 0); i++) {
+//    let results = [];
+//  let firstSet = [];
+//  for (let i = 1; i < (responseJson.length - 0); i++) {
 //     for (let key in responseJson[i]) {
 //       let response = responseJson[i][key];
 //       results.push(`${response}`);
 //       console.log(response);
 //       $('.results2').append(`${response}`);
 //     };
-    let response = responseJson[i];
-    let response2 = response.slice(0, -1);
-    console.log(response2);
-    values.push(`${response2}`);
-  };
-  console.log(values);
-  //  const headings = responseJson[0];
-  //  console.log(headings);
-  //  let table = `<table><tr>${headings.map(h => `<th>${h}</th>`).join('')}</tr>`
-  //  console.log(table);
+//    let response = responseJson[i];
+//    let modifiedResponse = response.slice(0, -1);
+//    let secondSet = [];
+//    if (checkedrace == "") {
+//      comma += ",";
+//    }
+//    console.log(response);
+//    console.log(modifiedResponse);
+//    firstSet.push(`${modifiedResponse}`);
+//  };
+//  console.log(firstSet);
+//  const headings = responseJson[0];
+//  console.log(headings);
+//  let table = `<table><tr>${headings.map(h => `<th>${h}</th>`).join('')}</tr>`
+//  console.log(table);
 
 //   for (let i = 0; i < whichrace.length; i++) {
 //     let whichraces = whichrace[i];
@@ -109,20 +118,29 @@ function displayResults(responseJson) {
   $(function printResults() {
     let table = `<table><tr>`;
     let table2 = `<table>`;
+    let first = [];
+    let second = [];
     $.map(whichstate, function(k) {
       table2 += `<tr><th>${k}</th></tr>`;
     });
     table2 += `</table>`;
     table += `</tr><tr>`;
+    table3 += `</table>`;
     $.map(whichrace, function(n) {
     table += `<th>${n}</th>`;
     });
     table += `</tr>`;
     for (let i = 1; i < responseJson.length; i++) {
       let response = responseJson[i];
-      let response2 = response.slice(0, -1);
-      table += `<tr>${response2.map(h => `<td>${h}</td>`).join('')}</tr>`;
+      let modifiedResponse = response.slice(0, -1);
+      if (numCheckedRaces !== 0) {
+        console.log(modifiedResponse);
+        first.push(modifiedResponse.slice(numCheckedRaces));
+        console.log(first);
+      }
+      table += `<tr>${modifiedResponse.map(h => `<td>${h}</td>`).join('')}</tr>`;
     };
+    console.log(first);
     table += `</table>`;
     console.log(table);
     console.log(table2);
@@ -132,7 +150,7 @@ function displayResults(responseJson) {
 
 
 //   let results = [];
-//   let values = [];
+//   let firstSet = [];
 //   for (let i = 1; i < (responseJson.length - 0); i++) {
 //      for (let key in responseJson[i]) {
 //        let response = responseJson[i][key];
@@ -141,12 +159,12 @@ function displayResults(responseJson) {
 //        $('.results2').append(`${response}`);
 //      };
 //     let response = responseJson[i];
-//     response2 = response.slice(0, -1);
+//     modifiedResponse = response.slice(0, -1);
 //     console.log(response);
-//     console.log(response2);
-//     values.push(`${response2}`);
+//     console.log(modifiedResponse);
+//     firstSet.push(`${modifiedResponse}`);
 //   };
-//   console.log(values);
+//   console.log(firstSet);
 
 
 // console.log(numCheckedStates);

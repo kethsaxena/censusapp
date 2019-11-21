@@ -123,9 +123,7 @@ function displayResults(responseJson) {
     $.map(whichstate, function(k) {
       table2 += `<tr><th>${k}</th></tr>`;
     });
-    table2 += `</table>`;
     table += `</tr><tr>`;
-    table3 += `</table>`;
     $.map(whichrace, function(n) {
     table += `<th>${n}</th>`;
     });
@@ -133,15 +131,16 @@ function displayResults(responseJson) {
     for (let i = 1; i < responseJson.length; i++) {
       let response = responseJson[i];
       let modifiedResponse = response.slice(0, -1);
-      if (numCheckedRaces !== 0) {
-        console.log(modifiedResponse);
-        first.push(modifiedResponse.slice(numCheckedRaces));
-        console.log(first);
-      }
+       if (numCheckedRaces !== 0) {
+         console.log(modifiedResponse);
+         first.push(modifiedResponse.slice(numCheckedRaces));
+         console.log(first);
+       }
       table += `<tr>${modifiedResponse.map(h => `<td>${h}</td>`).join('')}</tr>`;
     };
     console.log(first);
     table += `</table>`;
+    table2 += `</table>`;
     console.log(table);
     console.log(table2);
     $('.resultsStates').append(table2);

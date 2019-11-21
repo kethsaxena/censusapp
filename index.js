@@ -12,6 +12,9 @@ function collapseExpand() {
   $('.plussign2').click(function () {
     $('.checkboxchild2').toggle();
   });
+  $('.plussign3').click(function () {
+    $('.checkboxchild3').toggle();
+  });
 }
 
 function getStateInfo() {
@@ -39,11 +42,25 @@ function getStateInfo() {
   let raceid = checkedrace.join(",");
   let raceArray = checkedrace.join(", ");
 
+  if (checkedstate == "") {
+    alert("Please choose one or more States.");
+  }
+
+  let checkedsexes = [];
+  whichsexes = [];
+  $('input[name=sex]:checked').each(function () {
+    checkedsexes.push($(this).val());
+    whichsexes.push($(this).attr("id"));
+  });
+  let sexid = checkedsexes.join(",");
+  let sexArray = checkedsexes.join(", ");
+
 //  console.log(raceid)
   console.log(whichrace);
 
   numCheckedStates = $('input[name=state]:checked').length;
   numCheckedRaces = $('input[name=race]:checked').length;
+  numCheckedSexes = $('input[name=sex]:checked').length;
 
   let url = `${endpoint}get=${raceid}&for=state:${stateid}&key=${APIKey}`;
   console.log(url);
@@ -62,7 +79,8 @@ function getStateInfo() {
 
 function displayResults(responseJson) {
   $('.resultsStates').empty();
-  $('.resultsVariables').empty();
+  $('.resultsRaces').empty();
+  $('.resultsSexes').empty();
   //  let results = [];
   let values = [];
   for (let i = 1; i < (responseJson.length - 0); i++) {
@@ -109,7 +127,7 @@ function displayResults(responseJson) {
     console.log(table);
     console.log(table2);
     $('.resultsStates').append(table2);
-    $('.resultsVariables').append(table);
+    $('.resultsRaces').append(table);
   })
 
 
@@ -133,7 +151,7 @@ function displayResults(responseJson) {
 
 // console.log(numCheckedStates);
 // console.log(numCheckedRaces);
-//
+// console.log(numCheckedSexes);
 
 };
 

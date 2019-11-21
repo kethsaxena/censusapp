@@ -12,9 +12,13 @@
       <ul>
         <li>
           <span class="plussign1">+</span>
-          <input class="checkboxparent1" type="checkbox" id="">
-          <label class="checkboxparent1" for="">States</label>
+          <input class="checkboxparent1" type="checkbox" id="allstates">
+          <label class="checkboxparent1" for="allstates">States</label>
           <ul>
+            <li class="checkboxchild1">
+                <input type="checkbox" name="state" id="Georgia" value="13">
+                <label for="Georgia">Georgia</label>
+            </li>
             <li class="checkboxchild1">
               <input type="checkbox" name="state" id="Kentucky" value="21">
               <label for="Kentucky">Kentucky</label>
@@ -82,20 +86,39 @@
         </li>
       </ul>
     </div>
-
+    <div class="bySex">
+      <ul>
+        <li>
+          <span class="plussign3">+</span>
+          <input class="checkboxparent3" type="checkbox" name="sex" id="Sex" value="P014001">
+          <label class="checkboxparent3" for="">Sex</label>
+          <ul>
+            <li class="checkboxchild3">
+                <input type="checkbox" name="sex" id="Male" value="P014002">
+                <label for="Male">Male</label>
+            </li>
+            <li class="checkboxchild3">
+              <input type="checkbox" name="sex" id="Female" value="P014023">
+              <label for="Female">Female</label>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
     <input type="submit" class="submit" value="Search">
   </form>
 </div>
 <div class="resultsContainer">
-<div class="resultsStates">
-  <tr>
-    <th>State 1</th>
-  </tr>
-    <tr>
-    <th>State 2</th>
-  </tr>
-</div>
-<div class="resultsVariables">
+  <div class="resultsContainer1">
+    <div class="resultsStates">
+      <tr>
+        <th>State 1</th>
+      </tr>
+      <tr>
+        <th>State 2</th>
+      </tr>
+    </div>
+    <div class="resultsRaces">
       <tr>
         <th>Label 1</th>
         <th>Label 2</th>
@@ -108,7 +131,14 @@
         <td>123</td>
         <td>123</td>
       </tr>
-</div>
+    </div>
+  </div>
+  <div class="resultsContainer2">
+    <div class="resultsStates">
+    </div>
+    <div class="resultsSexes">
+    </div>
+  </div>
 </div>
 
     <!-- <div class="byState">

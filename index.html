@@ -6,7 +6,7 @@
 <title>Census App</title>
 </head>
 <body>
-<div class="container">
+<div class="selectionContainer">
   <form class="totalInput">
     <div class="byState">
       <ul>
@@ -55,16 +55,16 @@
               <label for="P003003">Black</label>
             </li>
             <li class="checkboxchild2">
-              <input type="checkbox" name="race" id="American Indian/Alaska Native" value="P003004">
-              <label for="P003004">American Indian/Alaska Native</label>
+              <input type="checkbox" name="race" id="Native" value="P003004">
+              <label for="P003004">American Indian/<br>Alaska [Native]</label>
             </li>
             <li class="checkboxchild2">
               <input type="checkbox" name="race" id="Asian" value="P003005">
               <label for="P003005">Asian</label>
             </li>
             <li class="checkboxchild2">
-              <input type="checkbox" name="race" id="Native Hawaiian/Other Pacific Islander" value="P003006">
-              <label for="P003006">Native Hawaiian/Other Pacific Islander</label>
+              <input type="checkbox" name="race" id="Islander" value="P003006">
+              <label for="P003006">Native Hawaiian/<br>Other Pacific [Islander]</label>
             </li>
             <li class="checkboxchild2">
               <input type="checkbox" name="race" id="Other" value="P003007">
@@ -82,33 +82,33 @@
         </li>
       </ul>
     </div>
+
     <input type="submit" class="submit" value="Search">
   </form>
 </div>
-<div class="results">
-  <table>
+<div class="resultsContainer">
+<div class="resultsStates">
+  <tr>
+    <th>State 1</th>
+  </tr>
+    <tr>
+    <th>State 2</th>
+  </tr>
+</div>
+<div class="resultsVariables">
       <tr>
         <th>Label 1</th>
         <th>Label 2</th>
-        <th>Label 3</th>
-        <th>Label 4</th>
       </tr>
       <tr>
-        <td>123</td>
-        <td>123</td>
         <td>123</td>
         <td>123</td>
       </tr>
       <tr>
         <td>123</td>
         <td>123</td>
-        <td>123</td>
-        <td>123</td>
       </tr>
-  </table>
 </div>
-<div class="results2">
-  
 </div>
 
     <!-- <div class="byState">

@@ -27,7 +27,7 @@ function getStateInfo() {
   let stateid = checkedstate.join(",");
   let stateArray = checkedstate.join(", ");
 
-  console.log(stateid);
+//  console.log(stateid);
   console.log(whichstate);
 
   let checkedrace = [];
@@ -39,13 +39,13 @@ function getStateInfo() {
   let raceid = checkedrace.join(",");
   let raceArray = checkedrace.join(", ");
 
-  console.log(raceid)
+//  console.log(raceid)
   console.log(whichrace);
 
   numCheckedStates = $('input[name=state]:checked').length;
   numCheckedRaces = $('input[name=race]:checked').length;
 
-  let url = `${endpoint}get=${raceid}&for=state:${stateid}&key=${APIKey}`
+  let url = `${endpoint}get=${raceid}&for=state:${stateid}&key=${APIKey}`;
   console.log(url);
 
   fetch(url)
@@ -61,71 +61,79 @@ function getStateInfo() {
 }
 
 function displayResults(responseJson) {
-  $('.results').empty();
-  $('.results2').empty();
-  console.log(responseJson);
-  console.log(responseJson[1][0]);
+  $('.resultsStates').empty();
+  $('.resultsVariables').empty();
+  //  let results = [];
+  let values = [];
+  for (let i = 1; i < (responseJson.length - 0); i++) {
+//     for (let key in responseJson[i]) {
+//       let response = responseJson[i][key];
+//       results.push(`${response}`);
+//       console.log(response);
+//       $('.results2').append(`${response}`);
+//     };
+    let response = responseJson[i];
+    let response2 = response.slice(0, -1);
+    console.log(response2);
+    values.push(`${response2}`);
+  };
+  console.log(values);
   //  const headings = responseJson[0];
   //  console.log(headings);
   //  let table = `<table><tr>${headings.map(h => `<th>${h}</th>`).join('')}</tr>`
   //  console.log(table);
-  let table = `<table>`;
-  let data1 = [];
-  for (let i = 1; i < responseJson.length; i++) {
-    table += `<tr>${responseJson[i].map(h => `<th>${h}</th>`).join('')}</tr>`
-    data1.push(responseJson[i]);
-  };
-  table += `</table>`
-//  console.log(table);
-  $('.results').append(table);
 
-  console.log(data1);
+//   for (let i = 0; i < whichrace.length; i++) {
+//     let whichraces = whichrace[i];
+//   table += `<tr>${whichraces.(h => `<th>${h}</th>`).join('')}</tr>`
+//   };
 
-  let results = [];
-  for (let i = 1; i < (responseJson.length - 0); i++) {
-    for (let key in responseJson[i]) {
-      console.log(responseJson[i][key])
-      $('.results2').append(`${responseJson[i][key]}`)
-      results.push(`${responseJson[i][key]}`)
-    }
-  }
-  console.log(results)
+  $(function printResults() {
+    let table = `<table><tr>`;
+    let table2 = `<table>`;
+    $.map(whichstate, function(k) {
+      table2 += `<tr><th>${k}</th></tr>`;
+    });
+    table2 += `</table>`;
+    table += `</tr><tr>`;
+    $.map(whichrace, function(n) {
+    table += `<th>${n}</th>`;
+    });
+    table += `</tr>`;
+    for (let i = 1; i < responseJson.length; i++) {
+      let response = responseJson[i];
+      let response2 = response.slice(0, -1);
+      table += `<tr>${response2.map(h => `<td>${h}</td>`).join('')}</tr>`;
+    };
+    table += `</table>`;
+    console.log(table);
+    console.log(table2);
+    $('.resultsStates').append(table2);
+    $('.resultsVariables').append(table);
+  })
 
-  // console.log(numCheckedStates);
-  // console.log(numCheckedRaces);
-  //
-  // let x1 = [];
-  // for (let i = 0; i < data1[0].length; i++) {
-  //   x1.push(data1[0][i]);
-  //   x11 = x1.slice(0, -1);
-  // }
 
-  // let x2 = [];
-  // for (i in data1[1]) {
-  //   x2.push(data1[1][i]);
-  //   x21 = x2.slice(0, -1);
-  // }
+//   let results = [];
+//   let values = [];
+//   for (let i = 1; i < (responseJson.length - 0); i++) {
+//      for (let key in responseJson[i]) {
+//        let response = responseJson[i][key];
+//        results.push(`${response}`);
+//        console.log(response);
+//        $('.results2').append(`${response}`);
+//      };
+//     let response = responseJson[i];
+//     response2 = response.slice(0, -1);
+//     console.log(response);
+//     console.log(response2);
+//     values.push(`${response2}`);
+//   };
+//   console.log(values);
 
-  // let x3 = [];
-  // for (i in data1[2]) {
-  //   x3.push(data1[2][i]);
-  //   x31 = x3.slice(0, -1);
-  // }
 
-  // console.log(data1[0][0]);
-  // console.log(x1);
-  // console.log(x2);
-  // console.log(x11);
-  // //console.log(${x21});
-  // //console.log(${x31});
-
-  // $('.results2').html(`
-  //   ${whichstate}<br>
-  //   ${whichrace}<br>
-  //   ${x11}<br>
-  //   ${x21}<br>
-  //   ${x31}
-  //   `);
+// console.log(numCheckedStates);
+// console.log(numCheckedRaces);
+//
 
 };
 

@@ -7,7 +7,9 @@
 </head>
 <body>
 <div class="selectionContainer">
+
   <form class="totalInput">
+
     <div class="byState">
       <ul>
         <li>
@@ -90,15 +92,15 @@
       <ul>
         <li>
           <span class="plussign3">+</span>
-          <input class="checkboxparent3" type="checkbox" name="sex" id="All-Sexes" value="P014001">
+          <input class="checkboxparent3" type="checkbox" name="sex" id="All-Sexes" value="PCT012001">
           <label class="checkboxparent3" for="">Sex</label>
           <ul>
             <li class="checkboxchild3">
-                <input type="checkbox" name="sex" id="Male" value="P014002">
+                <input type="checkbox" name="sex" id="Male" value="PCT012002">
                 <label for="Male">Male</label>
             </li>
             <li class="checkboxchild3">
-              <input type="checkbox" name="sex" id="Female" value="P014023">
+              <input type="checkbox" name="sex" id="Female" value="PCT012106">
               <label for="Female">Female</label>
             </li>
           </ul>
@@ -112,6 +114,23 @@
           <input class="checkboxparent4" type="checkbox" name="age" id="All-Ages" value="P012001">
           <label class="checkboxparent4" for="All-Ages">Age</label>
           <ul>
+            <!--<li>
+                <span class="plussign41">+</span>
+                <input class="checkboxparent41" type="checkbox" name="age" id="male2" value="P012001">
+                <label class="checkboxparent41" for="male2">Male</label>
+                <ul>
+            
+              <span class="plussign4">+</span>
+              <input class="checkboxparent4" type="checkbox" name="age" id="All-Ages" value="P012001">
+              <label class="checkboxparent4" for="All-Ages">Age</label> -->
+            <li class="checkboxchild4">
+                <input type="checkbox" name="age" id="under5" value="P012003">
+                <label for="under5">Under 5 (Male)</label>
+            </li>
+            <li class="checkboxchild4">
+                <input type="checkbox" name="age" id="5-9(M)" value="P012004">
+                <label for="5-9(M)">5-9 (Male)</label>
+            </li>
             <li class="checkboxchild4">
                 <input type="checkbox" name="age" id="22-24(M)" value="P012010">
                 <label for="22-24(M)">22-24 (Male)</label>
@@ -120,6 +139,13 @@
               <input type="checkbox" name="age" id="30-34(M)" value="P012012">
               <label for="30-34(M)">30-34 (Male)</label>
             </li>
+            <!--</ul>
+                  <ul>
+                    <li>
+                <span class="plussign41">+</span>
+                <input class="checkboxparent41" type="checkbox" name="age" id="female2" value="P012026">
+                <label class="checkboxparent41" for="female2">Female</label>
+                <ul> -->
             <li class="checkboxchild4">
               <input type="checkbox" name="age" id="22-24(F)" value="P012034">
               <label for="22-24(F)">22-24 (Female)</label>
@@ -128,10 +154,70 @@
               <input type="checkbox" name="age" id="30-34(F)" value="P012036">
               <label for="30-34(F)">30-34 (Female)</label>
             </li>
+            <!-- </ul>-->
           </ul>
         </li>
       </ul>
     </div>
+    <div class="byHousehold">
+        <ul>
+          <li>
+            <span class="plussign5">+</span>
+            <input class="checkboxparent5" type="checkbox" name="household" id="All-Relations" value="P029003">
+            <label class="checkboxparent5" for="All-Relations"></label>
+            <ul>
+              <li class="checkboxchild5">
+                  <input type="checkbox" name="household" id="householder" value="P029004">
+                  <label for="householder">22-24 (Female)</label>
+                </li>
+              <li class="checkboxchild5">
+                  <input type="checkbox" name="household" id="spouse" value="P029007">
+                  <label for="spouse">Spouse</label>
+              </li>
+              <li class="checkboxchild5">
+                <input type="checkbox" name="household" id="biologicalchild" value="P029008">
+                <label for="biologicalchild">Biological Child</label>
+              </li>
+              <li class="checkboxchild5">
+                <input type="checkbox" name="household" id="adoptedchild" value="P029009">
+                <label for="adoptedchild">Adopted Child</label>
+              </li>
+              <li class="checkboxchild5">
+                  <input type="checkbox" name="household" id="stepchild" value="P029009">
+                  <label for="stepchild">Step Child</label>
+              </li>
+              <li class="checkboxchild5">
+                  <input type="checkbox" name="household" id="grandchild" value="P029011">
+                  <label for="grandchild">Grandchild</label>
+              </li>
+              <li class="checkboxchild5">
+                  <input type="checkbox" name="household" id="sibling" value="P029012">
+                  <label for="sibling">Sibling</label>
+              </li>
+              <li class="checkboxchild5">
+                  <input type="checkbox" name="household" id="parent" value="P029013">
+                  <label for="parent">Parent</label>
+              </li>
+              <li class="checkboxchild5">
+                  <input type="checkbox" name="household" id="parentinlaw" value="P029014">
+                  <label for="parentinlaw">Parent-in-Law</label>
+              </li>
+              <li class="checkboxchild5">
+                  <input type="checkbox" name="household" id="childinlaw" value="P029015">
+                  <label for="childinlaw">Child-in-Law</label>
+              </li>
+              <li class="checkboxchild5">
+                  <input type="checkbox" name="household" id="otherrelatives" value="P029016">
+                  <label for="otherrelatives">Other Relatives</label>
+              </li>
+              <li class="checkboxchild5">
+                  <input type="checkbox" name="household" id="childinlaw" value="P029017">
+                  <label for="nonrelatives">Non-Relatives</label>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
     <input type="submit" class="submit" value="Search">
   </form>
 </div>

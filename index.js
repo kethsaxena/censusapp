@@ -18,6 +18,10 @@ function collapseExpand() {
   $('.plussign4').click(function () {
     $('.checkboxchild4').toggle();
   });
+  $('.plussign5').click(function () {
+    $('.checkboxchild5').toggle();
+  });
+
 }
 
 function getStateInfo() {
@@ -132,22 +136,31 @@ function displayResults(responseJson) {
 
     let numCheckedRacesAndSexes = (numCheckedRaces + numCheckedSexes);
 
+    console.log(numCheckedRacesAndSexes);
+
     for (let i = 1; i < responseJson.length; i++) {
       let response = responseJson[i];
       let modifiedResponse = response.slice(0, -1);
-       if (numCheckedRaces !== 0) {
-         console.log(modifiedResponse);
-         racesValues.push(modifiedResponse.slice(0, numCheckedRaces))
-         sexesValues.push(modifiedResponse.slice(numCheckedRaces));
-         console.log(racesValues);
-         console.log(sexesValues);
-       }
-       if (numCheckedAges != 0) {
-        agesValues.push(modifiedResponse.slice(numCheckedRacesAndSexes));
-       }
-//      table += `<tr>${modifiedResponse.map(h => `<td>${h}</td>`).join('')}</tr>`;
+      racesValues.push(response.slice(0, numCheckedRaces))
+      sexesValues.push(response.slice(numCheckedRaces, numCheckedRaces + numCheckedSexes))
+      agesValues.push(response.slice(numCheckedRaces + numCheckedSexes, -1));
+
+      //  if (numCheckedRaces !== 0) {
+      //     console.log(modifiedResponse);
+      //     racesValues.push(modifiedResponse.slice(0, numCheckedRaces));
+      //  }
+      //  if (numCheckedSexes != 0) {
+      //     sexesValues.push(modifiedResponse.slice(numCheckedRaces));
+      //  }
+      //  if (numCheckedAges != 0) {
+      //     agesValues.push(modifiedResponse.slice(numCheckedRacesAndSexes));
+      //  }
+      // table += `<tr>${modifiedResponse.map(h => `<td>${h}</td>`).join('')}</tr>`;
+
     };
 
+    console.log(racesValues);
+    console.log(sexesValues);
     console.log(agesValues);
 
     for (let i = 0; i < racesValues.length; i++) {

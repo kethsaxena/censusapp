@@ -101,6 +101,7 @@ function displayResults(responseJson) {
     let tableRaces = `<table><tr>`;
     let tableStates = `<table>`;
     let tablesSexes = `<table><tr>`;
+
     let racesValues = [];
     let sexesValues = [];
 
@@ -108,12 +109,15 @@ function displayResults(responseJson) {
       tableStates += `<tr><th>${k}</th></tr>`;
     });
     $.map(whichrace, function(n) {
-    tableRaces += `<th>${n}</th>`;
+      tableRaces += `<th>${n}</th>`;
     });
-    tableRaces += `</tr>`;
     $.map(whichsexes, function(u) {
-    tablesSexes += `<td>${u}</td>`;
+      tablesSexes += `<td>${u}</td>`;
     });
+    $.map(whichage)
+
+
+    tableRaces += `</tr>`;
     tablesSexes += `</tr>`;
 
     function numberWithCommas(x) {

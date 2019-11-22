@@ -7,11 +7,19 @@ body {
   border: 0.2px black solid;
 }
 
-.byState {
+.byState{
   border: 0.2px black solid;
 }
 
 .byRace {
+  border: 0.2px black solid;
+}
+
+.bySex {
+  border: 0.2 black solid;
+}
+
+.byAge {
   border: 0.2px black solid;
 }
 
@@ -26,7 +34,15 @@ body {
 }
 
 .resultsContainer2 {
+  border: 0.2px black solid;
   display: flex;
+  text-align: center;
+}
+
+.resultsContainer3 {
+  border: 0.2px black solid;
+  display: flex;
+  text-align: center;
 }
 
 .resultsStates {
@@ -40,6 +56,10 @@ body {
 
 .resultsSexes {
   border: 0.2px blue solid;
+}
+
+.resultsAges {
+  border: 0.2px orange solid;
 }
 
 .plussign:hover {

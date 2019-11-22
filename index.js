@@ -118,6 +118,7 @@ function displayResults(responseJson) {
   $(function printResults() {
     let table = `<table><tr>`;
     let table2 = `<table>`;
+    let table3 = `<table>`
     let first = [];
     let second = [];
     $.map(whichstate, function(k) {

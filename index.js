@@ -139,14 +139,16 @@ function displayResults(responseJson) {
       let modifiedResponse = response.slice(0, -1);
        if (numCheckedRaces !== 0) {
          console.log(modifiedResponse);
-         first.push(modifiedResponse.slice(numCheckedRaces));
+         first.push(modifiedResponse.slice(0, numCheckedRaces))
+         second.push(modifiedResponse.slice(numCheckedRaces));
          console.log(first);
+         console.log(second);
        }
       table += `<tr>${modifiedResponse.map(h => `<td>${h}</td>`).join('')}</tr>`;
     };
     
-    for (let i = 0; i < first.length; i++) {
-       table3 += `<tr>${first[i].map(h => `<td>${h}</td>`).join('')}</tr>`;
+    for (let i = 0; i < second.length; i++) {
+       table3 += `<tr>${second[i].map(h => `<td>${h}</td>`).join('')}</tr>`;
      }
   
     table += `</table>`;

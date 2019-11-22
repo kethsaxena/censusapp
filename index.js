@@ -118,17 +118,21 @@ function displayResults(responseJson) {
   $(function printResults() {
     let table = `<table><tr>`;
     let table2 = `<table>`;
-    let table3 = `<table>`
+    let table3 = `<table><tr>`;
     let first = [];
     let second = [];
+    let third = [];
     $.map(whichstate, function(k) {
       table2 += `<tr><th>${k}</th></tr>`;
     });
-    table += `</tr><tr>`;
     $.map(whichrace, function(n) {
     table += `<th>${n}</th>`;
     });
     table += `</tr>`;
+    $.map(whichsexes, function(u) {
+    table3 += `<td>${u}</td>`;
+    });
+    table3 += `</tr>`;
     for (let i = 1; i < responseJson.length; i++) {
       let response = responseJson[i];
       let modifiedResponse = response.slice(0, -1);
@@ -139,13 +143,25 @@ function displayResults(responseJson) {
        }
       table += `<tr>${modifiedResponse.map(h => `<td>${h}</td>`).join('')}</tr>`;
     };
+    for (let i = 0; i < first.length; i++) {
+       table3 += `<tr>${first[i].map(h => `<td>${h}</td>`).join('')}</tr>`;
+     }
+    for (let i = 0; i < numCheckedStates; i++) {
+      third += `${first[i].map(i => `${i}`).join('')}`
+    }
+    console.log(third);
+ //   table3 += `<tr>${first.map(h => `<td>${h}</td>`).join('')}</tr>`;
+    console.log(second);
     console.log(first);
     table += `</table>`;
     table2 += `</table>`;
+    table3 += `</tr></table>`;
     console.log(table);
     console.log(table2);
+    console.log(table3);
     $('.resultsStates').append(table2);
     $('.resultsRaces').append(table);
+    $('.resultsSexes').append(table3);
   })
 
 

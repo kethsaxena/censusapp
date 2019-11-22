@@ -25,6 +25,10 @@ body {
   text-align: center;
 }
 
+.resultsContainer2 {
+  display: flex;
+}
+
 .resultsStates {
   border: 0.2px red solid;
   padding: 22.5px 0 0 0;

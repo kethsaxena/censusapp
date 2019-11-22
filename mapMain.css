@@ -1,3 +1,5 @@
+
+
 #us-map{
   display: block;
   position: absolute;
@@ -30,4 +32,32 @@ path:hover, circle:hover {
   padding: 5px;
   font-family: arial;
 }
+
+
+
+ul {
+  list-style-type: none;
+}
+
+.mainTitle{
+  font-family: 'Calistoga', regular;
+}
+
+#icon_us{
+  width:"50";
+  height:"40"
+}
+
+.byRace{
+  font-family: 'Open Sans', regular;
+}
+
+.bySex{
+  font-family: 'Open Sans', regular;
+}
+
+.checkboxparent1{
+  font-family: 'Open Sans'
+}
+
 

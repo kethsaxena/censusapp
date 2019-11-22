@@ -25,17 +25,13 @@ function getStateInfo() {
   numCheckedRaces = $('input[name=race]:checked').length;
   numCheckedSexes = $('input[name=sex]:checked').length;
 
-  let checkedstate = [];
+  checkedstate = [];
   whichstate = [];
   $('input[name=state]:checked').each(function () {
     checkedstate.push($(this).val());
     whichstate.push($(this).attr("id"));
   });
   let stateid = checkedstate.join(",");
-  let stateArray = checkedstate.join(", ");
-
-//  console.log(stateid);
-//  console.log(whichstate);
 
   checkedrace = [];
   whichrace = [];
@@ -44,7 +40,6 @@ function getStateInfo() {
     whichrace.push($(this).attr("id"));
   });
   let raceid = checkedrace.join(",");
-  let raceArray = checkedrace.join(", ");
 
   let comma = "";
   if (numCheckedStates === 0) {
@@ -61,10 +56,6 @@ function getStateInfo() {
     whichsexes.push($(this).attr("id"));
   });
   let sexid = checkedsexes.join(",");
-  let sexArray = checkedsexes.join(", ");
-
-//  console.log(raceid)
-//  console.log(whichrace);
 
   let url = `${endpoint}get=${raceid}${comma}${sexid}&for=state:${stateid}&key=${APIKey}`;
   console.log(url);
@@ -85,42 +76,13 @@ function displayResults(responseJson) {
   $('.resultsStates').empty();
   $('.resultsRaces').empty();
   $('.resultsSexes').empty();
-//    let results = [];
-//  let firstSet = [];
-//  for (let i = 1; i < (responseJson.length - 0); i++) {
-//     for (let key in responseJson[i]) {
-//       let response = responseJson[i][key];
-//       results.push(`${response}`);
-//       console.log(response);
-//       $('.results2').append(`${response}`);
-//     };
-//    let response = responseJson[i];
-//    let modifiedResponse = response.slice(0, -1);
-//    let secondSet = [];
-//    if (checkedrace == "") {
-//      comma += ",";
-//    }
-//    console.log(response);
-//    console.log(modifiedResponse);
-//    firstSet.push(`${modifiedResponse}`);
-//  };
-//  console.log(firstSet);
-//  const headings = responseJson[0];
-//  console.log(headings);
-//  let table = `<table><tr>${headings.map(h => `<th>${h}</th>`).join('')}</tr>`
-//  console.log(table);
-
-//   for (let i = 0; i < whichrace.length; i++) {
-//     let whichraces = whichrace[i];
-//   table += `<tr>${whichraces.(h => `<th>${h}</th>`).join('')}</tr>`
-//   };
 
   $(function printResults() {
     let table = `<table><tr>`;
     let table2 = `<table>`;
     let table3 = `<table><tr>`;
-    let first = [];
-    let second = [];
+    let racesValues = [];
+    let sexesValues = [];
 
     $.map(whichstate, function(k) {
       table2 += `<tr><th>${k}</th></tr>`;
@@ -134,21 +96,29 @@ function displayResults(responseJson) {
     });
     table3 += `</tr>`;
 
+    function numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     for (let i = 1; i < responseJson.length; i++) {
       let response = responseJson[i];
       let modifiedResponse = response.slice(0, -1);
        if (numCheckedRaces !== 0) {
          console.log(modifiedResponse);
-         first.push(modifiedResponse.slice(0, numCheckedRaces))
-         second.push(modifiedResponse.slice(numCheckedRaces));
-         console.log(first);
-         console.log(second);
+         racesValues.push(modifiedResponse.slice(0, numCheckedRaces))
+         sexesValues.push(modifiedResponse.slice(numCheckedRaces));
+         console.log(racesValues);
+         console.log(sexesValues);
        }
-      table += `<tr>${modifiedResponse.map(h => `<td>${h}</td>`).join('')}</tr>`;
+//      table += `<tr>${modifiedResponse.map(h => `<td>${h}</td>`).join('')}</tr>`;
     };
+
+    for (let i = 0; i < racesValues.length; i++) {
+      table += `<tr>${racesValues[i].map(h => `<td>${numberWithCommas(h)}</td>`).join('')}</tr>`;
+    }
     
-    for (let i = 0; i < second.length; i++) {
-       table3 += `<tr>${second[i].map(h => `<td>${h}</td>`).join('')}</tr>`;
+    for (let i = 0; i < sexesValues.length; i++) {
+       table3 += `<tr>${sexesValues[i].map(h => `<td>${numberWithCommas(h)}</td>`).join('')}</tr>`;
      }
   
     table += `</table>`;

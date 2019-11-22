@@ -50,7 +50,7 @@ function getStateInfo() {
   if (numCheckedStates === 0) {
     alert("Please choose one or more States.");
   }
-  if (numCheckedRaces !== 0) {
+  if (numCheckedSexes !== 0) {
     comma += ",";
   }
 

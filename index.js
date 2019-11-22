@@ -78,23 +78,23 @@ function displayResults(responseJson) {
   $('.resultsSexes').empty();
 
   $(function printResults() {
-    let table = `<table><tr>`;
-    let table2 = `<table>`;
-    let table3 = `<table><tr>`;
+    let tableRaces = `<table><tr>`;
+    let tableStates = `<table>`;
+    let tablesSexes = `<table><tr>`;
     let racesValues = [];
     let sexesValues = [];
 
     $.map(whichstate, function(k) {
-      table2 += `<tr><th>${k}</th></tr>`;
+      tableStates += `<tr><th>${k}</th></tr>`;
     });
     $.map(whichrace, function(n) {
-    table += `<th>${n}</th>`;
+    tableRaces += `<th>${n}</th>`;
     });
-    table += `</tr>`;
+    tableRaces += `</tr>`;
     $.map(whichsexes, function(u) {
-    table3 += `<td>${u}</td>`;
+    tablesSexes += `<td>${u}</td>`;
     });
-    table3 += `</tr>`;
+    tablesSexes += `</tr>`;
 
     function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -114,42 +114,23 @@ function displayResults(responseJson) {
     };
 
     for (let i = 0; i < racesValues.length; i++) {
-      table += `<tr>${racesValues[i].map(h => `<td>${numberWithCommas(h)}</td>`).join('')}</tr>`;
+      tableRaces += `<tr>${racesValues[i].map(h => `<td>${numberWithCommas(h)}</td>`).join('')}</tr>`;
     }
     
     for (let i = 0; i < sexesValues.length; i++) {
-       table3 += `<tr>${sexesValues[i].map(h => `<td>${numberWithCommas(h)}</td>`).join('')}</tr>`;
-     }
+       tablesSexes += `<tr>${sexesValues[i].map(h => `<td>${numberWithCommas(h)}</td>`).join('')}</tr>`;
+    }
   
-    table += `</table>`;
-    table2 += `</table>`;
-    table3 += `</tr></table>`;
-    console.log(table);
-    console.log(table2);
-    console.log(table3);
-    $('.resultsRaces').append(table);
-    $('.resultsStates').append(table2);
-    $('.resultsSexes').append(table3);
+    tableRaces += `</table>`;
+    tableStates += `</table>`;
+    tablesSexes += `</tr></table>`;
+    console.log(tableRaces);
+    console.log(tableStates);
+    console.log(tablesSexes);
+    $('.resultsRaces').append(tableRaces);
+    $('.resultsStates').append(tableStates);
+    $('.resultsSexes').append(tablesSexes);
   })
-
-
-//   let results = [];
-//   let firstSet = [];
-//   for (let i = 1; i < (responseJson.length - 0); i++) {
-//      for (let key in responseJson[i]) {
-//        let response = responseJson[i][key];
-//        results.push(`${response}`);
-//        console.log(response);
-//        $('.results2').append(`${response}`);
-//      };
-//     let response = responseJson[i];
-//     modifiedResponse = response.slice(0, -1);
-//     console.log(response);
-//     console.log(modifiedResponse);
-//     firstSet.push(`${modifiedResponse}`);
-//   };
-//   console.log(firstSet);
-
 
 // console.log(numCheckedStates);
 // console.log(numCheckedRaces);

@@ -15,6 +15,9 @@ function collapseExpand() {
   $('.plussign3').click(function () {
     $('.checkboxchild3').toggle();
   });
+  $('.plussign4').click(function () {
+    $('.checkboxchild4').toggle();
+  });
 }
 
 function getStateInfo() {
@@ -24,6 +27,7 @@ function getStateInfo() {
   numCheckedStates = $('input[name=state]:checked').length;
   numCheckedRaces = $('input[name=race]:checked').length;
   numCheckedSexes = $('input[name=sex]:checked').length;
+  numCheckedAges = "";
 
   checkedstate = [];
   whichstate = [];
@@ -41,12 +45,25 @@ function getStateInfo() {
   });
   let raceid = checkedrace.join(",");
 
+  checkedage = [];
+  whichage = [];
+  $('input[name=age]:checked').each(function () {
+    checkedage.push($(this).val());
+    whichage.push($(this).attr("id"));
+  });
+  let ageid = checkedage.join(",");
+
   let comma = "";
   if (numCheckedStates === 0) {
     alert("Please choose one or more States.");
   }
   if (numCheckedSexes !== 0) {
     comma += ",";
+  }
+
+  let comma2 = "";
+  if (ageid != 0) {
+    comma2 += ",";
   }
 
   checkedsexes = [];
@@ -57,7 +74,10 @@ function getStateInfo() {
   });
   let sexid = checkedsexes.join(",");
 
-  let url = `${endpoint}get=${raceid}${comma}${sexid}&for=state:${stateid}&key=${APIKey}`;
+  console.log(comma);
+  console.log(comma2);
+
+  let url = `${endpoint}get=${raceid}${comma}${sexid}${comma2}${ageid}&for=state:${stateid}&key=${APIKey}`;
   console.log(url);
 
   fetch(url)

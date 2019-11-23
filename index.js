@@ -29,16 +29,16 @@ function collapseExpand() {
   });
 }
 
-$('path[id=GA]').click(function() {
-  if($('path[id=GA]').attr("fill") == "red")
+let statesArray = [];
+
+$('path').click(function() {
+  if($(this).attr("fill") == "red")
     {
-      $('path[id=GA]').attr("fill", "gray");
-      $($('#Georgia').attr("checked", false));
+      $(this).attr("fill", "#A9A9A9");
     }
     else
     {
-      $('path[id=GA]').attr("fill", "red");
-      $($('#Georgia').attr("checked", true));
+      $(this).attr("fill", "red");
     }
 });
 

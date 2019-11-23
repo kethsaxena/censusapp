@@ -31,7 +31,7 @@ function collapseExpand() {
 
 $('path[id=GA]').click(function() {
   if($('path[id=GA]').attr("fill") == "red")
-     {
+    {
       $('path[id=GA]').attr("fill", "gray");
       $($('#Georgia').attr("checked", false));
     }
@@ -40,9 +40,20 @@ $('path[id=GA]').click(function() {
       $('path[id=GA]').attr("fill", "red");
       $($('#Georgia').attr("checked", true));
     }
-console.log($('path[id=GA]'));
-console.log($(this))
 });
+
+// $('path[id=GA]').click(function() {
+//   if($('path[id=GA]').attr("fill") == "red")
+//     {
+//       $('path[id=GA]').attr("fill", "gray");
+//       $($('#Georgia').attr("checked", false));
+//     }
+//      else
+//     {
+//       $('path[id=GA]').attr("fill", "red");
+//       $($('#Georgia').attr("checked", true));
+//     }
+// });
 
 //////////////////////////// Map Stuff
 

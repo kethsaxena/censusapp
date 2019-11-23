@@ -234,11 +234,13 @@ function displayResults(responseJson) {
     tableSexes += `</table>`;
     tableAges += `</table>`;
     tableHousehold += `</table>`;
+
     console.log(tableRaces);
     console.log(tableStates);
     console.log(tableSexes);
     console.log(tableAges);
     console.log(tableHousehold);
+    
     $('.resultsRaces').append(tableRaces);
     $('.resultsStates').append(tableStates);
     $('.resultsSexes').append(tableSexes);

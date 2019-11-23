@@ -118,7 +118,7 @@ path:hover, circle:hover {
   z-index: 1;
   background-color: #ffffff;
   outline: 2px solid #BF0A30;
-  outline-radius: 5px;
+/*  outline-radius: 5px; */
   padding: 5px;
   font-family: arial;
 }

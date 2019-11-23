@@ -98,6 +98,12 @@ function getStateInfo() {
       checkedstate.push($(this).attr("id"));
     }
   });
+  $('circle').each(function () {
+    if ($(this).attr("fill") == "red") {
+      whichstate.push($(this).attr("name"));
+      checkedstate.push($(this).attr("id"));
+    }
+  });
 
   if ($('path[id=path67]').attr("fill") == "red") {
     whichstate = whichstate.slice(0, -1);

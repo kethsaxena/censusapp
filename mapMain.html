@@ -80,8 +80,44 @@
 
 <body>
 	   <h1 class="mainTitle">US Census Infogrpahic <img src="usFlag.jpg" alt="US Flag" id="icon_us" width="40" height="25"></h1>
-	   
-	  
+		 
+		 <form class="totalInput">
+
+		 <div class="byState">
+				<ul>
+					<li>
+						<span class="plussign1">+</span>
+						<input class="checkboxparent1" type="checkbox" id="All States">
+						<label class="checkboxparent1" for="All States">States</label>
+						<ul>
+							<li class="checkboxchild1">
+									<input type="checkbox" name="state" id="Georgia" value="13">
+									<label for="Georgia">Georgia</label>
+							</li>
+							<li class="checkboxchild1">
+								<input type="checkbox" name="state" id="Kentucky" value="21">
+								<label for="Kentucky">Kentucky</label>
+							</li>
+							<li class="checkboxchild1">
+								<input type="checkbox" name="state" id="Nevada" value="32">
+								<label for="Nevada">Nevada</label>
+							</li>
+							<li class="checkboxchild1">
+								<input type="checkbox" name="state" id="Virginia" value="51">
+								<label for="Virginia">Virginia</label>
+							</li>
+							<li class="checkboxchild1">
+								<input type="checkbox" name="state" id="Washington" value="53">
+								<label for="Washington">Washington</label>
+							</li>
+							<li class="checkboxchild1">
+								<input type="checkbox" name="state" id="Wyoming" value="56">
+								<label for="Wyoming">Wyoming</label>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 
 		<div class="byRace">
 				<ul>
@@ -146,7 +182,11 @@
 						</ul>
 					  </li>
 					</ul>
-				  </div>
+					</div>
+					<button type="button" name="selectall" id="selectall">Check All</button>
+					<button type="button" name="unselectall" id="unselectall">Uncheck All</button>
+					<input type="submit" class="submit" value="Search">
+				</form>
 
 </body>
 

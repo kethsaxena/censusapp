@@ -18,7 +18,37 @@ function collapseExpand() {
   });
 };
 
+$('path[id=GA]').click(function() {
+  if($('path[id=GA]').attr("fill") == "red")
+     {
+      $('path[id=GA]').attr("fill", "yellow");
+        $($('#Georgia').checked=true);
+    }
+    else
+    {
+      $('path[id=GA]').attr("fill", "red");
+      $($('#Georgia').checked=false);
+    }
+console.log($('path[id=GA]'));
+console.log($(this))
+})
 
+
+
+// function circleClicked()
+// {
+//     if( myCircle.getAttribute("fill")=="red")
+//     {
+//         myCircle.setAttribute("fill","yellow")
+//         myCheckbox.checked=true
+//     }
+//     else
+//     {
+//         myCircle.setAttribute("fill","red")
+//         myCheckbox.checked=false
+//     }
+
+// }
 
 $("path, circle").hover(function(e) {
   $('#info-box').css('display','block');

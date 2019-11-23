@@ -1,65 +1,79 @@
 body {
-  border: 0.2px black solid;
+  border: 0.1px black solid;
 }
 
 .selectionContainer {
   display: flex;
-  border: 0.2px black solid;
+  border: 0.1px black solid;
 }
 
 .byState{
-  border: 0.2px black solid;
+  border: 0.1px black solid;
 }
 
 .byRace {
-  border: 0.2px black solid;
+  border: 0.1px black solid;
 }
 
 .bySex {
-  border: 0.2 black solid;
+  border: 0.1px black solid;
 }
 
 .byAge {
-  border: 0.2px black solid;
+  border: 0.1px black solid;
+}
+
+.byHousehold {
+  border: 0.1px black solid;
 }
 
 .totalInput {
-  border: 0.2px blue solid;
+  border: 0.1px blue solid;
 }
   
 .resultsContainer1 {
-  border: 0.2px black solid;
+  border: 0.1px black solid;
   display: flex;
   text-align: center;
 }
 
 .resultsContainer2 {
-  border: 0.2px black solid;
+  border: 0.1px black solid;
   display: flex;
   text-align: center;
 }
 
 .resultsContainer3 {
-  border: 0.2px black solid;
+  border: 0.1px black solid;
+  display: flex;
+  text-align: center;
+}
+
+.resultsContainer4 {
+  border: 0.1px black solid;
   display: flex;
   text-align: center;
 }
 
 .resultsStates {
-  border: 0.2px red solid;
+  border: 0.1px red solid;
   padding: 22.5px 0 0 0;
 }
 
 .resultsRaces {
-  border: 0.2px green solid;
+  border: 0.1px green solid;
 }
 
 .resultsSexes {
-  border: 0.2px blue solid;
+  border: 0.1px blue solid;
 }
 
 .resultsAges {
-  border: 0.2px orange solid;
+  border: 0.1px orange solid;
+}
+
+.resultsHousehold {
+  border: 0.1px black solid;
 }
 
 .plussign:hover {

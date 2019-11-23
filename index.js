@@ -21,7 +21,12 @@ function collapseExpand() {
   $('.plussign5').click(function () {
     $('.checkboxchild5').toggle();
   });
-
+  $('#selectall').click(function() {
+    $('input[type=checkbox]').prop('checked', true);
+  });
+  $('#unselectall').click(function() {
+    $('input[type=checkbox]').prop('checked', false);
+  });
 }
 
 function getStateInfo() {
@@ -32,6 +37,7 @@ function getStateInfo() {
   numCheckedRaces = $('input[name=race]:checked').length;
   numCheckedSexes = $('input[name=sex]:checked').length;
   numCheckedAges = $('input[name=age]:checked').length;
+  numCheckedHousehold = $('input[name=household]:checked').length;
 
   checkedstate = [];
   whichstate = [];
@@ -65,6 +71,14 @@ function getStateInfo() {
   });
   let ageid = checkedage.join(",");
 
+  checkedhousehold = [];
+  whichhousehold = [];
+  $('input[name=household]:checked').each(function () {
+    checkedhousehold.push($(this).val());
+    whichhousehold.push($(this).attr("id"));
+  });
+  let householdid = checkedhousehold.join(",");
+
   let comma = "";
   if (numCheckedStates === 0) {
     alert("Please choose one or more States.");
@@ -78,10 +92,12 @@ function getStateInfo() {
     comma2 += ",";
   }
 
-  console.log(comma);
-  console.log(comma2);
+  let comma3 = "";
+  if (householdid != 0) {
+    comma3 += ",";
+  }
 
-  let url = `${endpoint}get=${raceid}${comma}${sexid}${comma2}${ageid}&for=state:${stateid}&key=${APIKey}`;
+  let url = `${endpoint}get=${raceid}${comma}${sexid}${comma2}${ageid}${comma3}${householdid}&for=state:${stateid}&key=${APIKey}`;
   console.log(url);
 
   fetch(url)
@@ -101,16 +117,19 @@ function displayResults(responseJson) {
   $('.resultsRaces').empty();
   $('.resultsSexes').empty();
   $('.resultsAges').empty();
+  $('.resultsHousehold').empty();
 
   $(function printResults() {
     let tableStates = `<table>`;
     let tableRaces = `<table><tr>`;
     let tableSexes = `<table><tr>`;
     let tableAges = `<table><tr>`;
+    let tableHousehold = `<table><tr>`;
 
     let racesValues = [];
     let sexesValues = [];
     let agesValues = [];
+    let householdValues = [];
 
     $.map(whichstate, function(k) {
       tableStates += `<tr><th>${k}</th></tr>`;
@@ -124,26 +143,30 @@ function displayResults(responseJson) {
     $.map(whichage, function(b) {
       tableAges += `<th>${b}</th>`;
     });
+    $.map(whichhousehold, function(w) {
+      tableHousehold += `<th>${w}</th>`;
+    });
 
 
     tableRaces += `</tr>`;
     tableSexes += `</tr>`;
     tableAges += `</tr>`;
+    tableHousehold += `</tr>`;
 
     function numberWithCommas(x) {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
     let numCheckedRacesAndSexes = (numCheckedRaces + numCheckedSexes);
-
-    console.log(numCheckedRacesAndSexes);
+    let numCheckedRacesSexesandAges = (numCheckedRacesAndSexes + numCheckedAges)
 
     for (let i = 1; i < responseJson.length; i++) {
       let response = responseJson[i];
       let modifiedResponse = response.slice(0, -1);
       racesValues.push(response.slice(0, numCheckedRaces))
-      sexesValues.push(response.slice(numCheckedRaces, numCheckedRaces + numCheckedSexes))
-      agesValues.push(response.slice(numCheckedRaces + numCheckedSexes, -1));
+      sexesValues.push(response.slice(numCheckedRaces, numCheckedRacesAndSexes))
+      agesValues.push(response.slice(numCheckedRacesAndSexes, numCheckedRacesSexesandAges));
+      householdValues.push(response.slice(numCheckedRacesSexesandAges, -1))
 
       //  if (numCheckedRaces !== 0) {
       //     console.log(modifiedResponse);
@@ -162,36 +185,40 @@ function displayResults(responseJson) {
     console.log(racesValues);
     console.log(sexesValues);
     console.log(agesValues);
+    console.log(householdValues);
 
     for (let i = 0; i < racesValues.length; i++) {
       tableRaces += `<tr>${racesValues[i].map(h => `<td>${numberWithCommas(h)}</td>`).join('')}</tr>`;
     }
     
     for (let i = 0; i < sexesValues.length; i++) {
-       tableSexes += `<tr>${sexesValues[i].map(p => `<td>${numberWithCommas(p)}</td>`).join('')}</tr>`;
+      tableSexes += `<tr>${sexesValues[i].map(p => `<td>${numberWithCommas(p)}</td>`).join('')}</tr>`;
     }
 
     for (let i = 0; i < agesValues.length; i++) {
       tableAges += `<tr>${agesValues[i].map(r => `<td>${numberWithCommas(r)}</td>`).join('')}</tr>`;
    }
+
+    for (let i = 0; i < householdValues.length; i++) {
+      tableHousehold += `<tr>${householdValues[i].map(r => `<td>${numberWithCommas(r)}</td>`).join('')}</tr>`;
+ }
   
     tableRaces += `</table>`;
     tableStates += `</table>`;
     tableSexes += `</table>`;
     tableAges += `</table>`;
+    tableHousehold += `</table>`;
     console.log(tableRaces);
     console.log(tableStates);
     console.log(tableSexes);
     console.log(tableAges);
+    console.log(tableHousehold);
     $('.resultsRaces').append(tableRaces);
     $('.resultsStates').append(tableStates);
     $('.resultsSexes').append(tableSexes);
     $('.resultsAges').append(tableAges);
+    $('.resultsHousehold').append(tableHousehold);
   })
-
-// console.log(numCheckedStates);
-// console.log(numCheckedRaces);
-// console.log(numCheckedSexes);
 
 };
 

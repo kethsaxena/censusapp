@@ -163,61 +163,75 @@
         <ul>
           <li>
             <span class="plussign5">+</span>
-            <input class="checkboxparent5" type="checkbox" name="household" id="All-Relations" value="P029003">
-            <label class="checkboxparent5" for="All-Relations">Household Relations</label>
+            <input class="checkboxparent5" type="checkbox" name="household" id="All Relations" value="P029001">
+            <label class="checkboxparent5" for="All Relations">Family Household</label>
             <ul>
               <li class="checkboxchild5">
-                  <input type="checkbox" name="household" id="householder" value="P029004">
-                  <label for="householder">Householder</label>
+                  <input type="checkbox" name="household" id="Householder" value="P029004">
+                  <label for="Householder">Householder</label>
                 </li>
               <li class="checkboxchild5">
-                  <input type="checkbox" name="household" id="spouse" value="P029007">
-                  <label for="spouse">Spouse</label>
+                  <input type="checkbox" name="household" id="Spouse" value="P029007">
+                  <label for="Spouse">Spouse</label>
               </li>
               <li class="checkboxchild5">
-                <input type="checkbox" name="household" id="biologicalchild" value="P029008">
-                <label for="biologicalchild">Biological Child</label>
+                <input type="checkbox" name="household" id="Biological Child" value="P029008">
+                <label for="Biological Child">Biological Child</label>
               </li>
               <li class="checkboxchild5">
-                <input type="checkbox" name="household" id="adoptedchild" value="P029009">
-                <label for="adoptedchild">Adopted Child</label>
+                <input type="checkbox" name="household" id="Adopted Child" value="P029009">
+                <label for="Adopted Child">Adopted Child</label>
               </li>
               <li class="checkboxchild5">
-                  <input type="checkbox" name="household" id="stepchild" value="P029009">
-                  <label for="stepchild">Step Child</label>
+                  <input type="checkbox" name="household" id="Step Child" value="P029010">
+                  <label for="Step Child">Step Child</label>
               </li>
               <li class="checkboxchild5">
-                  <input type="checkbox" name="household" id="grandchild" value="P029011">
-                  <label for="grandchild">Grandchild</label>
+                  <input type="checkbox" name="household" id="Grandchild" value="P029011">
+                  <label for="Grandchild">Grandchild</label>
               </li>
               <li class="checkboxchild5">
-                  <input type="checkbox" name="household" id="sibling" value="P029012">
-                  <label for="sibling">Sibling</label>
+                  <input type="checkbox" name="household" id="Sibling" value="P029012">
+                  <label for="Sibling">Sibling</label>
               </li>
               <li class="checkboxchild5">
-                  <input type="checkbox" name="household" id="parent" value="P029013">
-                  <label for="parent">Parent</label>
+                  <input type="checkbox" name="household" id="Parent" value="P029013">
+                  <label for="Parent">Parent</label>
               </li>
               <li class="checkboxchild5">
-                  <input type="checkbox" name="household" id="parentinlaw" value="P029014">
-                  <label for="parentinlaw">Parent-in-Law</label>
+                  <input type="checkbox" name="household" id="Parent-in-Law" value="P029014">
+                  <label for="Parent-in-Law">Parent-in-Law</label>
               </li>
               <li class="checkboxchild5">
-                  <input type="checkbox" name="household" id="childinlaw" value="P029015">
-                  <label for="childinlaw">Child-in-Law</label>
+                  <input type="checkbox" name="household" id="Child-in-Law" value="P029015">
+                  <label for="Child-in-Law">Child-in-Law</label>
               </li>
               <li class="checkboxchild5">
-                  <input type="checkbox" name="household" id="otherrelatives" value="P029016">
-                  <label for="otherrelatives">Other Relatives</label>
+                  <input type="checkbox" name="household" id="Other Relatives" value="P029016">
+                  <label for="Other Relatives">Other Relatives</label>
               </li>
               <li class="checkboxchild5">
-                  <input type="checkbox" name="household" id="childinlaw" value="P029017">
-                  <label for="nonrelatives">Non-Relatives</label>
+                  <input type="checkbox" name="household" id="Non-Relatives" value="P029017">
+                  <label for="Non-Relatives">Non-Relatives</label>
+              </li>
+              <li class="checkboxchild5">
+                  <input type="checkbox" name="household" id="Non-Family Household" value="P029018">
+                  <label for="Non-Family Household">Non-Family Household</label>
+              </li>
+              <li class="checkboxchild5">
+                  <input type="checkbox" name="household" id="Institutionalized" value="P029027">
+                  <label for="Institutionalized">Institutionalized</label>
+              </li>
+              <li class="checkboxchild5">
+                  <input type="checkbox" name="household" id="Shelters/Group Quarters" value="P029028">
+                  <label for="Shelters/Group Quarters">Shelters/Group Quarters</label>
               </li>
             </ul>
           </li>
         </ul>
       </div>
+    <button type="button" name="selectall" id="selectall">Check All</button>
+    <button type="button" name="unselectall" id="unselectall">Uncheck All</button>
     <input type="submit" class="submit" value="Search">
   </form>
 </div>
@@ -294,7 +308,32 @@
       </tr>
     </div>
   </div>
+  <div class="resultsContainer4">
+      <div class="resultsStates">
+        <tr>
+          <th>State 1</th>
+        </tr>
+        <tr>
+          <th>State 2</th>
+        </tr>
+      </div>
+      <div class="resultsHousehold">
+        <tr>
+          <th>Label 1</th>
+          <th>Label 2</th>
+        </tr>
+        <tr>
+          <td>123</td>
+          <td>123</td>
+        </tr>
+        <tr>
+          <td>123</td>
+          <td>123</td>
+        </tr>
+      </div>
+    </div>
 </div>
+<div class="link"><a href="/censusapp/mapMain.html">map</a></div>
 
     <!-- <div class="byState">
       <label>Choose State:</label><br><select class="state" name="state">

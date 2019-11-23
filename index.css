@@ -149,3 +149,10 @@ path:hover, circle:hover {
 .checkboxparent1{
   font-family: 'Open Sans'
 }
+
+
+.buttons{
+  margin: auto;
+  width: 200px
+
+}

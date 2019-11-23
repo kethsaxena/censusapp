@@ -38,7 +38,18 @@ function collapseExpand() {
 $('path').click(function() {
   if($(this).attr("fill") == "red")
     {
-      $(this).attr("fill", "#A9A9A9");
+      $(this).attr("fill", "#D3D3D3");
+    }
+    else
+    {
+      $(this).attr("fill", "red");
+    }
+});
+
+$('circle').click(function() {
+  if($(this).attr("fill") == "red")
+    {
+      $(this).attr("fill", "#D3D3D3");
     }
     else
     {

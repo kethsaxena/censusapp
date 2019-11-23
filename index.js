@@ -29,9 +29,11 @@ function collapseExpand() {
   });
   $('#selectallmap').click(function() {
     $('path').attr("fill", "red");
+    $('circle').attr("fill", "red");
   });
   $('#unselectallmap').click(function() {
     $('path').attr("fill", "#A9A9A9");
+    $('circle').attr("fill", "#A9A9A9");
   });
 }
 
@@ -96,6 +98,12 @@ function getStateInfo() {
       checkedstate.push($(this).attr("id"));
     }
   });
+
+  if ($('path[id=path67]').attr("fill") == "red") {
+    whichstate = whichstate.slice(0, -1);
+    checkedstate = checkedstate.slice(0, -1);
+  }
+
   let stateid = checkedstate.join(",");
 
   checkedrace = [];
@@ -136,12 +144,12 @@ function getStateInfo() {
   numCheckedHousehold = $('input[name=household]:checked').length;
 
   let comma = "";
-  if (numCheckedRaces != 0) {
+  if (numCheckedRaces != 0 && (numCheckedSexes != 0 || numCheckedAges != 0 || numCheckedHousehold != 0)) {
     comma += ",";
   }
 
   let comma2 = "";
-  if (numCheckedSexes != 0) {
+  if (numCheckedSexes != 0 && (numCheckedAges != 0 || numCheckedHousehold != 0)) {
     comma2 += ",";
   }
 
@@ -240,11 +248,11 @@ function displayResults(responseJson) {
 
     for (let i = 0; i < agesValues.length; i++) {
       tableAges += `<tr>${agesValues[i].map(r => `<td>${numberWithCommas(r)}</td>`).join('')}</tr>`;
-   }
+    }
 
     for (let i = 0; i < householdValues.length; i++) {
       tableHousehold += `<tr>${householdValues[i].map(r => `<td>${numberWithCommas(r)}</td>`).join('')}</tr>`;
- }
+    }
   
     tableRaces += `</table>`;
     tableStates += `</table>`;

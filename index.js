@@ -167,7 +167,10 @@ function getStateInfo() {
   let url = `${endpoint}get=${raceid}${comma}${sexid}${comma2}${ageid}${comma3}${householdid}&for=state:${stateid}&key=${APIKey}`;
   console.log(url);
 
-  fetch(url)
+  if (stateid == "") {
+    alert('Please choose a state!')
+  } else if (stateid != "") {
+    fetch(url)
     .then(response => {
       if (response.ok) {
         return response.json();
@@ -177,7 +180,7 @@ function getStateInfo() {
     .then(responseJson =>
       displayResults(responseJson))
     .catch(error => console.log(error));
-}
+    }}
 
 function displayResults(responseJson) {
 

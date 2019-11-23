@@ -29,8 +29,6 @@ function collapseExpand() {
   });
 }
 
-let statesArray = [];
-
 $('path').click(function() {
   if($(this).attr("fill") == "red")
     {
@@ -41,19 +39,6 @@ $('path').click(function() {
       $(this).attr("fill", "red");
     }
 });
-
-// $('path[id=GA]').click(function() {
-//   if($('path[id=GA]').attr("fill") == "red")
-//     {
-//       $('path[id=GA]').attr("fill", "gray");
-//       $($('#Georgia').attr("checked", false));
-//     }
-//      else
-//     {
-//       $('path[id=GA]').attr("fill", "red");
-//       $($('#Georgia').attr("checked", true));
-//     }
-// });
 
 //////////////////////////// Map Stuff
 
@@ -86,19 +71,32 @@ function getStateInfo() {
   let APIKey = "12ba7d01dfe85e9b84c731fceefc830022291a8f";
   let endpoint = "https://api.census.gov/data/2010/dec/sf1?";
 
-  numCheckedStates = $('input[name=state]:checked').length;
   numCheckedRaces = $('input[name=race]:checked').length;
   numCheckedSexes = $('input[name=sex]:checked').length;
   numCheckedAges = $('input[name=age]:checked').length;
   numCheckedHousehold = $('input[name=household]:checked').length;
 
+  // checkedstate = [];
+  // whichstate = [];
+  // $('input[name=state]:checked').each(function () {
+  //   checkedstate.push($(this).val());
+  //   whichstate.push($(this).attr("id"));
+  // });
+  // let stateid = checkedstate.join(",");
+
   checkedstate = [];
   whichstate = [];
-  $('input[name=state]:checked').each(function () {
-    checkedstate.push($(this).val());
-    whichstate.push($(this).attr("id"));
+  $('path').each(function () {
+    if ($(this).attr("fill") == "red") {
+      whichstate.push($(this).attr("name"));
+      checkedstate.push($(this).attr("id"));
+    }
   });
   let stateid = checkedstate.join(",");
+
+  console.log(checkedstate);
+  console.log(whichstate);
+  console.log(stateid);
 
   checkedrace = [];
   whichrace = [];
@@ -133,10 +131,7 @@ function getStateInfo() {
   let householdid = checkedhousehold.join(",");
 
   let comma = "";
-  if (numCheckedStates === 0) {
-    alert("Please choose one or more States.");
-  }
-  if (numCheckedSexes !== 0) {
+  if (numCheckedSexes != 0) {
     comma += ",";
   }
 
@@ -146,7 +141,7 @@ function getStateInfo() {
   }
 
   let comma3 = "";
-  if (householdid != 0) {
+  if (householdid != 0 && (ageid == 0)) {
     comma3 += ",";
   }
 

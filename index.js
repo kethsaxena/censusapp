@@ -27,12 +27,31 @@ function collapseExpand() {
   $('#unselectall').click(function() {
     $('input[type=checkbox]').prop('checked', false);
   });
+  $('#selectallmap').click(function() {
+    $('path').attr("fill", "red");
+    $('circle').attr("fill", "red");
+  });
+  $('#unselectallmap').click(function() {
+    $('path').attr("fill", "#A9A9A9");
+    $('circle').attr("fill", "#A9A9A9");
+  });
 }
 
 $('path').click(function() {
   if($(this).attr("fill") == "red")
     {
-      $(this).attr("fill", "#A9A9A9");
+      $(this).attr("fill", "#D3D3D3");
+    }
+    else
+    {
+      $(this).attr("fill", "red");
+    }
+});
+
+$('circle').click(function() {
+  if($(this).attr("fill") == "red")
+    {
+      $(this).attr("fill", "#D3D3D3");
     }
     else
     {
@@ -71,11 +90,6 @@ function getStateInfo() {
   let APIKey = "12ba7d01dfe85e9b84c731fceefc830022291a8f";
   let endpoint = "https://api.census.gov/data/2010/dec/sf1?";
 
-  numCheckedRaces = $('input[name=race]:checked').length;
-  numCheckedSexes = $('input[name=sex]:checked').length;
-  numCheckedAges = $('input[name=age]:checked').length;
-  numCheckedHousehold = $('input[name=household]:checked').length;
-
   checkedstate = [];
   whichstate = [];
   $('path').each(function () {
@@ -84,11 +98,13 @@ function getStateInfo() {
       checkedstate.push($(this).attr("id"));
     }
   });
-  let stateid = checkedstate.join(",");
 
-  console.log(checkedstate);
-  console.log(whichstate);
-  console.log(stateid);
+  if ($('path[id=path67]').attr("fill") == "red") {
+    whichstate = whichstate.slice(0, -1);
+    checkedstate = checkedstate.slice(0, -1);
+  }
+
+  let stateid = checkedstate.join(",");
 
   checkedrace = [];
   whichrace = [];
@@ -122,18 +138,23 @@ function getStateInfo() {
   });
   let householdid = checkedhousehold.join(",");
 
+  numCheckedRaces = $('input[name=race]:checked').length;
+  numCheckedSexes = $('input[name=sex]:checked').length;
+  numCheckedAges = $('input[name=age]:checked').length;
+  numCheckedHousehold = $('input[name=household]:checked').length;
+
   let comma = "";
-  if (numCheckedSexes != 0) {
+  if (numCheckedRaces != 0 && (numCheckedSexes != 0 || numCheckedAges != 0 || numCheckedHousehold != 0)) {
     comma += ",";
   }
 
   let comma2 = "";
-  if (ageid != 0) {
+  if (numCheckedSexes != 0 && (numCheckedAges != 0 || numCheckedHousehold != 0)) {
     comma2 += ",";
   }
 
   let comma3 = "";
-  if (householdid != 0 && ageid != 0) {
+  if (numCheckedAges != 0 && numCheckedHousehold != 0) {
     comma3 += ",";
   }
 
@@ -227,22 +248,24 @@ function displayResults(responseJson) {
 
     for (let i = 0; i < agesValues.length; i++) {
       tableAges += `<tr>${agesValues[i].map(r => `<td>${numberWithCommas(r)}</td>`).join('')}</tr>`;
-   }
+    }
 
     for (let i = 0; i < householdValues.length; i++) {
       tableHousehold += `<tr>${householdValues[i].map(r => `<td>${numberWithCommas(r)}</td>`).join('')}</tr>`;
- }
+    }
   
     tableRaces += `</table>`;
     tableStates += `</table>`;
     tableSexes += `</table>`;
     tableAges += `</table>`;
     tableHousehold += `</table>`;
+
     console.log(tableRaces);
     console.log(tableStates);
     console.log(tableSexes);
     console.log(tableAges);
     console.log(tableHousehold);
+
     $('.resultsRaces').append(tableRaces);
     $('.resultsStates').append(tableStates);
     $('.resultsSexes').append(tableSexes);

@@ -27,6 +27,12 @@ function collapseExpand() {
   $('#unselectall').click(function() {
     $('input[type=checkbox]').prop('checked', false);
   });
+  $('#selectallmap').click(function() {
+    $('path').attr("fill", "red");
+  });
+  $('#unselectallmap').click(function() {
+    $('path').attr("fill", "#A9A9A9");
+  });
 }
 
 $('path').click(function() {
@@ -240,7 +246,7 @@ function displayResults(responseJson) {
     console.log(tableSexes);
     console.log(tableAges);
     console.log(tableHousehold);
-    
+
     $('.resultsRaces').append(tableRaces);
     $('.resultsStates').append(tableStates);
     $('.resultsSexes').append(tableSexes);

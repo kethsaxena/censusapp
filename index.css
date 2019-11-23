@@ -1,12 +1,12 @@
 body {
-  outline: 0.1px black solid;
+  /*outline: 0.1px black solid;*/
   font-family: "Quattrocento Sans", sans-serif;
   font-size: 12px;
 }
 
 .selectionContainer {
   display: flex;
-  outline: 0.1px black solid;
+  /*outline: 0.1px black solid;/
 }
 
 .byState{
@@ -14,7 +14,8 @@ body {
 }
 
 .byRace {
-  outline: 0.1px black solid;
+ /*   outline: 0.1px black solid;*/
+  padding-left: 250px
 }
 
 .bySex {
@@ -121,4 +122,27 @@ path:hover, circle:hover {
 /*  outline-radius: 5px; */
   padding: 5px;
   font-family: arial;
+}
+
+
+
+.mainTitle{
+  font-family: 'Calistoga', regular;
+}
+
+#icon_us{
+  width:"50";
+  height:"10"
+}
+
+.byRace{
+  font-family: 'Open Sans', regular;
+}
+
+.bySex{
+  font-family: 'Open Sans', regular;
+}
+
+.checkboxparent1{
+  font-family: 'Open Sans'
 }

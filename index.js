@@ -32,8 +32,8 @@ function collapseExpand() {
     $('circle').attr("fill", "red");
   });
   $('#unselectallmap').click(function() {
-    $('path').attr("fill", "#A9A9A9");
-    $('circle').attr("fill", "#A9A9A9");
+    $('path').attr("fill", "#D3D3D3");
+    $('circle').attr("fill", "#D3D3D3");
   });
 }
 

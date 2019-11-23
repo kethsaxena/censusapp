@@ -1,5 +1,7 @@
 body {
   border: 0.1px black solid;
+  font-family: "Quattrocento Sans", sans-serif;
+  font-size: 12px;
 }
 
 .selectionContainer {

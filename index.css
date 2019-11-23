@@ -17,7 +17,7 @@ body {
  /*   outline: 0.1px black solid;*/
   padding-left: 250px
 }
-
+/* 
 .bySex {
   outline: 0.1px black solid;
 }
@@ -29,10 +29,10 @@ body {
 .byHousehold {
   outline: 0.1px black solid;
 }
-
+*/
 .totalInput {
-  outline: 0.1px blue solid;
-}
+  outline: 0.1px black solid;
+} 
   
 .resultsContainer1 {
   outline: 0.1px black solid;

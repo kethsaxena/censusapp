@@ -1,81 +1,81 @@
 body {
-  border: 0.1px black solid;
+  outline: 0.1px black solid;
   font-family: "Quattrocento Sans", sans-serif;
   font-size: 12px;
 }
 
 .selectionContainer {
   display: flex;
-  border: 0.1px black solid;
+  outline: 0.1px black solid;
 }
 
 .byState{
-  border: 0.1px black solid;
+  outline: 0.1px black solid;
 }
 
 .byRace {
-  border: 0.1px black solid;
+  outline: 0.1px black solid;
 }
 
 .bySex {
-  border: 0.1px black solid;
+  outline: 0.1px black solid;
 }
 
 .byAge {
-  border: 0.1px black solid;
+  outline: 0.1px black solid;
 }
 
 .byHousehold {
-  border: 0.1px black solid;
+  outline: 0.1px black solid;
 }
 
 .totalInput {
-  border: 0.1px blue solid;
+  outline: 0.1px blue solid;
 }
   
 .resultsContainer1 {
-  border: 0.1px black solid;
+  outline: 0.1px black solid;
   display: flex;
   text-align: center;
 }
 
 .resultsContainer2 {
-  border: 0.1px black solid;
+  outline: 0.1px black solid;
   display: flex;
   text-align: center;
 }
 
 .resultsContainer3 {
-  border: 0.1px black solid;
+  outline: 0.1px black solid;
   display: flex;
   text-align: center;
 }
 
 .resultsContainer4 {
-  border: 0.1px black solid;
+  outline: 0.1px black solid;
   display: flex;
   text-align: center;
 }
 
 .resultsStates {
-  border: 0.1px red solid;
+  outline: 0.1px red solid;
   padding: 22.5px 0 0 0;
 }
 
 .resultsRaces {
-  border: 0.1px green solid;
+  outline: 0.1px green solid;
 }
 
 .resultsSexes {
-  border: 0.1px blue solid;
+  outline: 0.1px blue solid;
 }
 
 .resultsAges {
-  border: 0.1px orange solid;
+  outline: 0.1px orange solid;
 }
 
 .resultsHousehold {
-  border: 0.1px black solid;
+  outline: 0.1px black solid;
 }
 
 .plussign:hover {
@@ -84,4 +84,41 @@ body {
 
 ul {
   list-style-type: none;
+}
+
+.map {
+  display: flex;
+  outline: 1px solid red;
+}
+
+#us-map{
+  width: auto;
+  height: auto;
+}
+
+path:hover, circle:hover {
+  stroke: #002868 !important;
+  stroke-width:2px;
+  stroke-linejoin: round;
+  fill: #002868 !important;
+  cursor: pointer;
+}
+
+#path67 {
+  fill: none !important;
+  stroke: #A9A9A9 !important;
+  cursor: default;
+}
+
+#info-box { 
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  background-color: #ffffff;
+  outline: 2px solid #BF0A30;
+  outline-radius: 5px;
+  padding: 5px;
+  font-family: arial;
 }

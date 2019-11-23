@@ -29,6 +29,48 @@ function collapseExpand() {
   });
 }
 
+$('path[id=GA]').click(function() {
+  if($('path[id=GA]').attr("fill") == "red")
+     {
+      $('path[id=GA]').attr("fill", "yellow");
+        $($('#Georgia').checked=true);
+    }
+    else
+    {
+      $('path[id=GA]').attr("fill", "red");
+      $($('#Georgia').checked=false);
+    }
+console.log($('path[id=GA]'));
+console.log($(this))
+});
+
+//////////////////////////// Map Stuff
+
+$("path, circle").hover(function(e) {
+  $('#info-box').css('display','block');
+  $('#info-box').html($(this).data('info'));
+});
+
+$("path, circle").mouseleave(function(e) {
+  $('#info-box').css('display','none');
+});
+
+$(document).mousemove(function(e) {
+  $('#info-box').css('top',e.pageY-$('#info-box').height()-30);
+  $('#info-box').css('left',e.pageX-($('#info-box').width())/2);
+}).mouseover();
+
+var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+if(ios) {
+  $('a').on('click touchend', function() {
+    var link = $(this).attr('href');
+    window.open(link,'_blank');
+    return false;
+  });
+}
+
+//////////////////////// End Map Stuff
+
 function getStateInfo() {
   let APIKey = "12ba7d01dfe85e9b84c731fceefc830022291a8f";
   let endpoint = "https://api.census.gov/data/2010/dec/sf1?";

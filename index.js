@@ -106,8 +106,8 @@ function getStateInfo() {
   });
 
   if ($('path[id=path67]').attr("fill") == "red") {
-    whichstate = whichstate.slice(0, -1);
-    checkedstate = checkedstate.slice(0, -1);
+    whichstate = whichstate.slice(0, -2);
+    checkedstate = checkedstate.slice(0, -2);
   }
 
   let stateid = checkedstate.join(",");

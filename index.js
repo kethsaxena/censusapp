@@ -141,7 +141,7 @@ function getStateInfo() {
   }
 
   let comma3 = "";
-  if (householdid != 0 && (ageid == 0)) {
+  if (householdid != 0 && ageid != 0) {
     comma3 += ",";
   }
 
@@ -161,6 +161,9 @@ function getStateInfo() {
 }
 
 function displayResults(responseJson) {
+
+  console.log(responseJson);
+  
   $('.resultsStates').empty();
   $('.resultsRaces').empty();
   $('.resultsSexes').empty();

@@ -71,11 +71,6 @@ function getStateInfo() {
   let APIKey = "12ba7d01dfe85e9b84c731fceefc830022291a8f";
   let endpoint = "https://api.census.gov/data/2010/dec/sf1?";
 
-  numCheckedRaces = $('input[name=race]:checked').length;
-  numCheckedSexes = $('input[name=sex]:checked').length;
-  numCheckedAges = $('input[name=age]:checked').length;
-  numCheckedHousehold = $('input[name=household]:checked').length;
-
   checkedstate = [];
   whichstate = [];
   $('path').each(function () {
@@ -85,10 +80,6 @@ function getStateInfo() {
     }
   });
   let stateid = checkedstate.join(",");
-
-  console.log(checkedstate);
-  console.log(whichstate);
-  console.log(stateid);
 
   checkedrace = [];
   whichrace = [];
@@ -122,18 +113,23 @@ function getStateInfo() {
   });
   let householdid = checkedhousehold.join(",");
 
+  numCheckedRaces = $('input[name=race]:checked').length;
+  numCheckedSexes = $('input[name=sex]:checked').length;
+  numCheckedAges = $('input[name=age]:checked').length;
+  numCheckedHousehold = $('input[name=household]:checked').length;
+
   let comma = "";
-  if (numCheckedSexes != 0) {
+  if (numCheckedRaces != 0) {
     comma += ",";
   }
 
   let comma2 = "";
-  if (ageid != 0) {
+  if (numCheckedSexes != 0) {
     comma2 += ",";
   }
 
   let comma3 = "";
-  if (householdid != 0 && ageid != 0) {
+  if (numCheckedAges != 0 && numCheckedHousehold != 0) {
     comma3 += ",";
   }
 

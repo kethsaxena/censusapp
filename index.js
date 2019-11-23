@@ -76,14 +76,6 @@ function getStateInfo() {
   numCheckedAges = $('input[name=age]:checked').length;
   numCheckedHousehold = $('input[name=household]:checked').length;
 
-  // checkedstate = [];
-  // whichstate = [];
-  // $('input[name=state]:checked').each(function () {
-  //   checkedstate.push($(this).val());
-  //   whichstate.push($(this).attr("id"));
-  // });
-  // let stateid = checkedstate.join(",");
-
   checkedstate = [];
   whichstate = [];
   $('path').each(function () {
@@ -163,7 +155,7 @@ function getStateInfo() {
 function displayResults(responseJson) {
 
   console.log(responseJson);
-  
+
   $('.resultsStates').empty();
   $('.resultsRaces').empty();
   $('.resultsSexes').empty();
@@ -218,19 +210,6 @@ function displayResults(responseJson) {
       sexesValues.push(response.slice(numCheckedRaces, numCheckedRacesAndSexes))
       agesValues.push(response.slice(numCheckedRacesAndSexes, numCheckedRacesSexesandAges));
       householdValues.push(response.slice(numCheckedRacesSexesandAges, -1))
-
-      //  if (numCheckedRaces !== 0) {
-      //     console.log(modifiedResponse);
-      //     racesValues.push(modifiedResponse.slice(0, numCheckedRaces));
-      //  }
-      //  if (numCheckedSexes != 0) {
-      //     sexesValues.push(modifiedResponse.slice(numCheckedRaces));
-      //  }
-      //  if (numCheckedAges != 0) {
-      //     agesValues.push(modifiedResponse.slice(numCheckedRacesAndSexes));
-      //  }
-      // table += `<tr>${modifiedResponse.map(h => `<td>${h}</td>`).join('')}</tr>`;
-
     };
 
     console.log(racesValues);

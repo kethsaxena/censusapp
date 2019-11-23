@@ -29,19 +29,15 @@ function collapseExpand() {
   });
 }
 
-$('path[id=GA]').click(function() {
-  if($('path[id=GA]').attr("fill") == "red")
-     {
-      $('path[id=GA]').attr("fill", "gray");
-      $($('#Georgia').attr("checked", false));
+$('path').click(function() {
+  if($(this).attr("fill") == "red")
+    {
+      $(this).attr("fill", "#A9A9A9");
     }
     else
     {
-      $('path[id=GA]').attr("fill", "red");
-      $($('#Georgia').attr("checked", true));
+      $(this).attr("fill", "red");
     }
-console.log($('path[id=GA]'));
-console.log($(this))
 });
 
 //////////////////////////// Map Stuff
@@ -75,7 +71,6 @@ function getStateInfo() {
   let APIKey = "12ba7d01dfe85e9b84c731fceefc830022291a8f";
   let endpoint = "https://api.census.gov/data/2010/dec/sf1?";
 
-  numCheckedStates = $('input[name=state]:checked').length;
   numCheckedRaces = $('input[name=race]:checked').length;
   numCheckedSexes = $('input[name=sex]:checked').length;
   numCheckedAges = $('input[name=age]:checked').length;
@@ -83,11 +78,17 @@ function getStateInfo() {
 
   checkedstate = [];
   whichstate = [];
-  $('input[name=state]:checked').each(function () {
-    checkedstate.push($(this).val());
-    whichstate.push($(this).attr("id"));
+  $('path').each(function () {
+    if ($(this).attr("fill") == "red") {
+      whichstate.push($(this).attr("name"));
+      checkedstate.push($(this).attr("id"));
+    }
   });
   let stateid = checkedstate.join(",");
+
+  console.log(checkedstate);
+  console.log(whichstate);
+  console.log(stateid);
 
   checkedrace = [];
   whichrace = [];
@@ -122,10 +123,7 @@ function getStateInfo() {
   let householdid = checkedhousehold.join(",");
 
   let comma = "";
-  if (numCheckedStates === 0) {
-    alert("Please choose one or more States.");
-  }
-  if (numCheckedSexes !== 0) {
+  if (numCheckedSexes != 0) {
     comma += ",";
   }
 
@@ -135,7 +133,7 @@ function getStateInfo() {
   }
 
   let comma3 = "";
-  if (householdid != 0) {
+  if (householdid != 0 && ageid != 0) {
     comma3 += ",";
   }
 
@@ -155,6 +153,9 @@ function getStateInfo() {
 }
 
 function displayResults(responseJson) {
+
+  console.log(responseJson);
+
   $('.resultsStates').empty();
   $('.resultsRaces').empty();
   $('.resultsSexes').empty();
@@ -209,19 +210,6 @@ function displayResults(responseJson) {
       sexesValues.push(response.slice(numCheckedRaces, numCheckedRacesAndSexes))
       agesValues.push(response.slice(numCheckedRacesAndSexes, numCheckedRacesSexesandAges));
       householdValues.push(response.slice(numCheckedRacesSexesandAges, -1))
-
-      //  if (numCheckedRaces !== 0) {
-      //     console.log(modifiedResponse);
-      //     racesValues.push(modifiedResponse.slice(0, numCheckedRaces));
-      //  }
-      //  if (numCheckedSexes != 0) {
-      //     sexesValues.push(modifiedResponse.slice(numCheckedRaces));
-      //  }
-      //  if (numCheckedAges != 0) {
-      //     agesValues.push(modifiedResponse.slice(numCheckedRacesAndSexes));
-      //  }
-      // table += `<tr>${modifiedResponse.map(h => `<td>${h}</td>`).join('')}</tr>`;
-
     };
 
     console.log(racesValues);

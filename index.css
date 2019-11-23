@@ -88,7 +88,7 @@ ul {
 
 .map {
   display: flex;
-  outline: 1px solid red;
+  outline: 0.1px solid red;
 }
 
 #us-map{
@@ -117,7 +117,7 @@ path:hover, circle:hover {
   left: 0px;
   z-index: 1;
   background-color: #ffffff;
-  outline: 2px solid #BF0A30;
+  outline: .1px solid #BF0A30;
 /*  outline-radius: 5px; */
   padding: 5px;
   font-family: arial;

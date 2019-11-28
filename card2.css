@@ -1,13 +1,11 @@
-.card-container {
-    display: flex;
-    flex-direction: column;
-  }
   
   .card {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: row; */  
     border: 3.5px solid grey;
     border-radius: 10px;
+    margin-left: auto;
+      margin-right: auto;
     /* align-items: center; */
   }
   
@@ -17,34 +15,18 @@
     font-family: 'Calistoga', regular;
   }
   
-  .info-section {
+  .info-section-gender, .info-section-race{display: inline-block;}
   
-  }
+  .info-section-age, .info-section-house{display: inline-block;}
   
-  .info-list {
-    list-style-type: none;
-  }
-  
-  .info-item {
-    border: 1px solid blue;
-  }
-  
-  .item-heading {
-  
-  }
-  
-  .item-data {
-  
-  }
-  
-  
-  @media only screen and (min-width: 600px) {
-    li {
-      width: 65%;
-    }
+  table{
+    border: 1px solid black;
+    border-radius: 10px;       
+
   }
 
-  table thead td img{
+
+  table thead img{
       width:50px;
       height:40px;
       display: block;
@@ -54,6 +36,7 @@
 
   table thead td{
     font-family: 'Solway', serif;
+    text-align: center;
   }
 
   
@@ -61,19 +44,23 @@
 
     
     .gender {
-        border: 1px solid black;
-        border-radius: 10px;
         margin-left:10px
 
+    }
+    
+    .race {
+        margin-left:5px
 
     }
 
-    .genderBody td{
-    border: 1.5px solid grey;
-    border-radius: 10px;
-    text-align: center;
-    font-family: 'Solway', serif;
-    color: white
+    
+    .age {
+        margin-left:10px
+
+    }
+    
+    .house {
+        margin-left:5px
 
     }
 
@@ -87,3 +74,52 @@
     }
 
 
+    
+    tbody td{
+        border: 1.5px solid grey;
+        border-radius: 10px;
+        text-align: center;
+        font-family: 'Solway', serif;
+        color: white
+    
+        }
+
+
+    
+        .raceBody td:nth-child(2),.raceBody td:nth-child(4){
+            background-color: #4240ff;
+            
+        }
+
+        .raceBody td:nth-child(1),.raceBody td:nth-child(3){
+            background-color: #ff5e73
+            
+        }
+
+
+        .ageBody tr td:nth-child(1){
+            background-color: #4240ff;
+            
+        }
+
+        .ageBody tr td:nth-child(2){
+            background-color: #ff5e73
+            
+        }
+
+        
+        .houseBody tr td:nth-child(1),.houseBody tr td:nth-child(3){
+            background-color: #4240ff;
+            
+        }
+
+        .houseBody tr td:nth-child(2){
+            background-color: #ff5e73
+            
+        }
+   
+/*         
+        .raceBody tr:nth-child(2){
+            background-color: #ff5e73
+        }
+     */

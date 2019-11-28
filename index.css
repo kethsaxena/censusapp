@@ -1,6 +1,6 @@
 body {
   /*outline: 0.1px black solid;*/
-  font-family: "Quattrocento Sans", sans-serif;
+  font-family: 'Open Sans', regular;
   font-size: 12px;
 }
 
@@ -70,11 +70,11 @@ body {
   outline: 0.1px green solid;
 }
 
-.resultsSexes {
+.resultsSizes {
   outline: 0.1px blue solid;
 }
 
-.resultsAges {
+.resultsAS {
   outline: 0.1px orange solid;
 }
 

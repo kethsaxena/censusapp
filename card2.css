@@ -1,0 +1,89 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    border: 3.5px solid grey;
+    border-radius: 10px;
+    /* align-items: center; */
+  }
+  
+  h3 {
+    border: 1px solid red;
+    text-align: center;
+    font-family: 'Calistoga', regular;
+  }
+  
+  .info-section {
+  
+  }
+  
+  .info-list {
+    list-style-type: none;
+  }
+  
+  .info-item {
+    border: 1px solid blue;
+  }
+  
+  .item-heading {
+  
+  }
+  
+  .item-data {
+  
+  }
+  
+  
+  @media only screen and (min-width: 600px) {
+    li {
+      width: 65%;
+    }
+  }
+
+  table thead td img{
+      width:50px;
+      height:40px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  table thead td{
+    font-family: 'Solway', serif;
+  }
+
+  
+  /* GENDER TABLE   */
+
+    
+    .gender {
+        border: 1px solid black;
+        border-radius: 10px;
+        margin-left:10px
+
+
+    }
+
+    .genderBody td{
+    border: 1.5px solid grey;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'Solway', serif;
+    color: white
+
+    }
+
+    .genderBody tr:nth-child(1){
+    background-color: #4240ff;
+    
+}
+
+    .genderBody tr:nth-child(2){
+        background-color: #ff5e73
+    }
+
+

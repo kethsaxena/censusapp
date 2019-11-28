@@ -1,13 +1,26 @@
   
   .card {
-    /* display: flex;
-    flex-direction: row; */  
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 3.5px solid grey;
     border-radius: 10px;
-    margin-left: auto;
-      margin-right: auto;
-    /* align-items: center; */
+    
   }
+
+  #row1,#row2{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  width: 95%;
+  justify-content: stretch;
+  }
+  
+  
   
   h3 {
     border: 1px solid red;
@@ -15,13 +28,13 @@
     font-family: 'Calistoga', regular;
   }
   
-  .info-section-gender, .info-section-race{display: inline-block;}
-  
-  .info-section-age, .info-section-house{display: inline-block;}
-  
+
   table{
     border: 1px solid black;
-    border-radius: 10px;       
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+           
 
   }
 
@@ -29,9 +42,6 @@
   table thead img{
       width:50px;
       height:40px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
   }
 
   table thead td{
@@ -43,34 +53,27 @@
   /* GENDER TABLE   */
 
     
-    .gender {
+    .gender,.age  {
         margin-left:10px
 
     }
     
-    .race {
-        margin-left:5px
-
-    }
-
-    
-    .age {
-        margin-left:10px
-
-    }
-    
-    .house {
+    .race,.house {
         margin-left:5px
 
     }
 
     .genderBody tr:nth-child(1){
     background-color: #4240ff;
+    width:100%;
+    height:100%
     
 }
 
     .genderBody tr:nth-child(2){
-        background-color: #ff5e73
+        background-color: #ff5e73;
+        width:100%;
+        height:100%
     }
 
 
@@ -88,22 +91,30 @@
     
         .raceBody td:nth-child(2),.raceBody td:nth-child(4){
             background-color: #4240ff;
+            width:100%;
+            height:100%
             
         }
 
         .raceBody td:nth-child(1),.raceBody td:nth-child(3){
-            background-color: #ff5e73
+            background-color: #ff5e73;
+            width:100%;
+            height:100%
             
         }
 
 
         .ageBody tr td:nth-child(1){
             background-color: #4240ff;
+            width:100%;
+            height:100%
             
         }
 
         .ageBody tr td:nth-child(2){
-            background-color: #ff5e73
+            background-color: #ff5e73;
+            width:100%;
+            height:100%
             
         }
 

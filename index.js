@@ -253,17 +253,17 @@ function displayResults(responseJson) {
     let ASFValues = [];
     let householdValues = [];
 
-    if (numCheckedAS != 0 && numCheckedASM != 0 && numCheckedASF != 0) {
-      $.map(whichAS, function(p) {
-        tableASM += `<th>${p}</th>`;
-        tableASF += `<th>${p}</th>`;
-      })} else if (numCheckedAS != 0 && numCheckedASM != 0 && numCheckedASF == 0) {
-      $.map(whichAS, function(p) {
-        tableASM += `<th>${p}</th>`;
-      })} else if (numCheckedAS != 0 && numCheckedASM == 0 && numCheckedASF != 0) {
-        $.map(whichAS, function(p) {
-        tableASF += `<th>${p}</th>`;
-    })};
+    // if (numCheckedAS != 0 && numCheckedASM != 0 && numCheckedASF != 0) {
+    //   $.map(whichAS, function(p) {
+    //     tableASM += `<th>${p}</th>`;
+    //     tableASF += `<th>${p}</th>`;
+    //   })} else if (numCheckedAS != 0 && numCheckedASM != 0 && numCheckedASF == 0) {
+    //   $.map(whichAS, function(p) {
+    //     tableASM += `<th>${p}</th>`;
+    //   })} else if (numCheckedAS != 0 && numCheckedASM == 0 && numCheckedASF != 0) {
+    //     $.map(whichAS, function(p) {
+    //     tableASF += `<th>${p}</th>`;
+    // })};
   
     $.map(whichState, function(k) {
       tableStates1 += `<tr><th>${k}</th></tr>`;
@@ -314,17 +314,17 @@ function displayResults(responseJson) {
       householdValues.push(response.slice(numCheckedRacesSizesASASMASF, -1));
     };
 
-    if (numCheckedAS != 0 && numCheckedASM != 0 && numCheckedASF != 0) {
-      tableASM += `<tr><td>${numberWithCommas(ASValues)}</td>`
-      tableASF += `<tr><td>${numberWithCommas(ASValues)}</td>`
-    } else if (numCheckedAS != 0 && numCheckedASM != 0 && numCheckedASF == 0) {
-      tableASM += `<tr><td>${numberWithCommas(ASValues)}</td>`
-    } else if (numCheckedAS != 0 && numCheckedASM == 0 && numCheckedASF != 0) {
-      tableASF += `<tr><td>${numberWithCommas(ASValues)}</td>`
-    } else {
-      tableASM += `<tr>`;
-      tableASF += `<tr>`;
-    }
+    // if (numCheckedAS != 0 && numCheckedASM != 0 && numCheckedASF != 0) {
+    //   tableASM += `<tr><td>${numberWithCommas(ASValues)}</td>`
+    //   tableASF += `<tr><td>${numberWithCommas(ASValues)}</td>`
+    // } else if (numCheckedAS != 0 && numCheckedASM != 0 && numCheckedASF == 0) {
+    //   tableASM += `<tr><td>${numberWithCommas(ASValues)}</td>`
+    // } else if (numCheckedAS != 0 && numCheckedASM == 0 && numCheckedASF != 0) {
+    //   tableASF += `<tr><td>${numberWithCommas(ASValues)}</td>`
+    // } else {
+    //   tableASM += `<tr>`;
+    //   tableASF += `<tr>`;
+    // }
 
     for (let i = 0; i < racesValues.length; i++) {
       tableRaces += `<tr>${racesValues[i].map(h => `<td>${numberWithCommas(h)}</td>`).join('')}</tr>`;
@@ -335,11 +335,11 @@ function displayResults(responseJson) {
     }
 
     for (let i = 0; i < ASMValues.length; i++) {
-      tableASM += `${ASMValues[i].map(r => `<td>${numberWithCommas(r)}</td>`).join('')}</tr>`;
+      tableASM += `<tr>${ASMValues[i].map(r => `<td>${numberWithCommas(r)}</td>`).join('')}</tr>`;
     }
 
     for (let i = 0; i < ASFValues.length; i++) {
-      tableASF += `${ASFValues[i].map(r => `<td>${numberWithCommas(r)}</td>`).join('')}</tr>`;
+      tableASF += `<tr>${ASFValues[i].map(r => `<td>${numberWithCommas(r)}</td>`).join('')}</tr>`;
     }
 
     for (let i = 0; i < householdValues.length; i++) {

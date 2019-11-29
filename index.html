@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<link href="index.css" rel="stylesheet" type="text/css" />
+<link href="index2.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Calistoga">
 <title>Census App</title>
 </head>
@@ -87,7 +87,7 @@
 
   <form class="totalInput">
     <div class="byRace">
-      <ul>
+      <ul id="lstRace">
         <li class="checkboxparent1">
         <span class="plussign2">+</span>
         <input type="checkbox" name="race" id="All Races" value="P003001">
@@ -97,10 +97,12 @@
             <input type="checkbox" name="race" id="White" value="P003002">
             <label for="White">White</label>
           </li>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <li class="checkboxchild2">
             <input  type="checkbox" name="race" id="Black" value="P003003">
             <label for="Black">Black</label>
           </li>
+          
           <li class="checkboxchild2">
             <input type="checkbox" name="race" id="Native" value="P003004">
             <label for="Native">AmInd/AlNat</label>
@@ -109,6 +111,7 @@
             <input type="checkbox" name="race" id="Asian" value="P003005">
             <label for="Asian">Asian</label>
           </li>
+          <br>
           <li class="checkboxchild2">
             <input type="checkbox" name="race" id="Islander" value="P003006">
             <label for="Islander">NHwn/OPfc</label>
@@ -121,6 +124,7 @@
             <input type="checkbox" name="race" id="2+Races" value="P003008">
             <label for="2+Races">2+ Races</label>
           </li>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <li class="checkboxchild2">
             <input type="checkbox" name="race" id="Latino" value="P004003">
             <label for="Latino">Latino</label>
@@ -148,6 +152,7 @@
               <input type="checkbox" name="size" id="3" value="H013004">
               <label for="3">3</label>
           </li>
+          <br>
           <li class="checkboxchild3">
               <input type="checkbox" name="size" id="4" value="H013005">
               <label for="4">4</label>
@@ -176,9 +181,10 @@
       <label for="agesmain">All Ages</label>
       <ul>
         <li class="checkboxparent41">
-        <input type="checkbox" name="AS" id="Total (M+F)" value="P012001">
-        <label for="Total (M+F)">Total (M + F)</label>
+        <input type="checkbox" name="AS" id="All Ages" value="P012001">
+        <label for="All Ages">Total (M + F)</label>
         </li>
+        <br>
         <li class="checkboxmiddle41">
           <span class="plussign41">+</span>
           <input type="checkbox" name="M" id="M" value="">
@@ -186,67 +192,79 @@
           <ul>
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="Total(M)" value="P012002">
-              <label for="Total(M)">All Ages (M)</label>
+              <label for="Total(M)">All Ages</label>
             </li>        
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="Under 5(M)" value="P012003">
-              <label for="Under 5(M)">Under 5 (M)</label>
+              <label for="Under 5(M)">Under 5</label>
             </li>
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="5-9(M)" value="P012004">
-              <label for="5-9(M)">5-9 (M)</label>
+              <label for="5-9(M)">5-9</label>
             </li>
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="10-14(M)" value="P012005">
-              <label for="10-14(M)">10-14 (M)</label>
+              <label for="10-14(M)">10-14</label>
             </li>
+            <br>
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="15-17(M)" value="P012006">
-              <label for="15-17(M)">15-17 (M)</label>
+              <label for="15-17(M)">15-17</label>
             </li>
+            &nbsp;&nbsp;&nbsp;
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="18-19(M)" value="P012007">
-              <label for="18-19(M)">18-19 (M)</label>
+              <label for="18-19(M)">18-19</label>
             </li>
+            &nbsp;&nbsp;&nbsp;
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="20(M)" value="P012008">
-              <label for="20(M)">20 (M)</label>
+              <label for="20(M)">20</label>
             </li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="21(M)" value="P012009">
-              <label for="21(M)">21 (M)</label>
+              <label for="21(M)">21</label>
             </li>
+            <br>
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="22-24(M)" value="P012010">
-              <label for="22-24(M)">22-24 (M)</label>
+              <label for="22-24(M)">22-24</label>
             </li>
+            &nbsp;&nbsp;&nbsp;
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="25-29(M)" value="P012011">
-              <label for="25-29(M)">25-29 (M)</label>
+              <label for="25-29(M)">25-29</label>
             </li>
+            &nbsp;&nbsp;&nbsp;
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="30-34(M)" value="P012012">
-              <label for="30-34(M)">30-34 (M)</label>
+              <label for="30-34(M)">30-34</label>
             </li>
+            
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="35-39(M)" value="P012013">
-              <label for="35-39(M)">35-39 (M)</label>
+              <label for="35-39(M)">35-39</label>
             </li>
+            <br>
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="40-44(M)" value="P012014">
-              <label for="40-44(M)">40-44 (M)</label>
+              <label for="40-44(M)">40-44</label>
             </li>
+            &nbsp;&nbsp;&nbsp;
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="45-49(M)" value="P012015">
-              <label for="45-49(M)">45-49 (M)</label>
+              <label for="45-49(M)">45-49</label>
             </li>
+            &nbsp;&nbsp;&nbsp;
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="50-54(M)" value="P012016">
-              <label for="50-54(M)">50-54 (M)</label>
+              <label for="50-54(M)">50-54</label>
             </li>
             <li class="checkboxchild41">
               <input type="checkbox" name="ASM" id="55-59(M)" value="P012017">
-              <label for="55-59(M)">55-59 (M)</label>
+              <label for="55-59(M)">55-59</label>
             </li>
           </ul>
           </li>
@@ -259,67 +277,79 @@
             <ul>
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="Total(F)" value="P012026">
-                <label for="Total(F)">All Ages (F)</label>
+                <label for="Total(F)">All Ages</label>
               </li>
+              
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="Under 5(F)" value="P012027">
-                <label for="Under 5(F)">Under 5 (F)</label>
+                <label for="Under 5(F)">Under 5</label>
               </li>
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="5-9(F)" value="P012028">
-                <label for="5-9(F)">5-9 (F)</label>
+                <label for="5-9(F)">5-9</label>
               </li>
+              &nbsp;&nbsp;&nbsp;
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="10-14(F)" value="P012029">
-                <label for="10-14(F)">10-14 (F)</label>
+                <label for="10-14(F)">10-14</label>
               </li>
+              <br>
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="15-17(F)" value="P012030">
-                <label for="15-17(F)">15-17 (F)</label>
+                <label for="15-17(F)">15-17</label>
               </li>
+              &nbsp;&nbsp;&nbsp;
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="18-19(F)" value="P012031">
-                <label for="18-19(F)">18-19 (F)</label>
+                <label for="18-19(F)">18-19</label>
               </li>
+              &nbsp;&nbsp;&nbsp;
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="20(F)" value="P012032">
-                <label for="20(F)">20 (F)</label>
+                <label for="20(F)">20</label>
               </li>
+              &nbsp;&nbsp;&nbsp;&nbsp;
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="21(F)" value="P012033">
-                <label for="21(F)">21 (F)</label>
+                <label for="21(F)">21</label>
               </li>
+              <br>
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="22-24(F)" value="P012034">
-                <label for="22-24(F)">22-24 (F)</label>
+                <label for="22-24(F)">22-24</label>
               </li>
+              &nbsp;&nbsp;&nbsp;
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="25-29(F)" value="P012035">
-                <label for="25-29(F)">25-29 (F)</label>
+                <label for="25-29(F)">25-29</label>
               </li>
+              &nbsp;&nbsp;&nbsp;
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="30-34(F)" value="P012036">
-                <label for="30-34(F)">30-34 (F)</label>
+                <label for="30-34(F)">30-34</label>
               </li>
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="35-39(F)" value="P012037">
-                <label for="35-39(F)">35-39 (F)</label>
+                <label for="35-39(F)">35-39</label>
               </li>
+              <br>
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="40-44(F)" value="P012038">
-                <label for="40-44(F)">40-44 (F)</label>
+                <label for="40-44(F)">40-44</label>
               </li>
+              &nbsp;&nbsp;&nbsp;
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="45-49(F)" value="P012038">
-                <label for="45-49(F)">45-49 (F)</label>
+                <label for="45-49(F)">45-49</label>
               </li>
+              &nbsp;&nbsp;&nbsp;
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="50-54(F)" value="P012039">
-                <label for="50-54(F)">50-54 (F)</label>
+                <label for="50-54(F)">50-54</label>
               </li>
               <li class="checkboxchild42">
                 <input type="checkbox" name="ASF" id="55-59(F)" value="P012040">
-                <label for="55-59(F)">55-59 (F)</label>
+                <label for="55-59(F)">55-59</label>
               </li>
               
             </ul>
@@ -334,24 +364,28 @@
         <li class="checkboxparent5">
           <span class="plussign5">+</span>
           <input type="checkbox" name="household" id="All Relations" value="P029001">
-          <label for="All Relations"><b>Household Occupants</b></label>
+          <label for="All Relations"><b>Family Household</b></label>
           <ul>
             <li class="checkboxchild5"> 
               <input type="checkbox" name="household" id="Householder" value="P029004">
               <label for="Householder">Householder</label>
             </li>
+            &nbsp;&nbsp;
             <li class="checkboxchild5">
               <input type="checkbox" name="household" id="Spouse" value="P029007">
               <label for="Spouse">Spouse</label>
             </li>
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <li class="checkboxchild5">
               <input type="checkbox" name="household" id="Biological Child" value="P029008">
               <label for="Biological Child">Biological Child</label>
             </li>
+            <br>
             <li class="checkboxchild5">
               <input type="checkbox" name="household" id="Adopted Child" value="P029009">
               <label for="Adopted Child">Adopted Child</label>
             </li>
+            &nbsp;
             <li class="checkboxchild5">
               <input type="checkbox" name="household" id="Step Child" value="P029010">
               <label for="Step Child">Step Child</label>
@@ -360,18 +394,22 @@
               <input type="checkbox" name="household" id="Grandchild" value="P029011">
               <label for="Grandchild">Grandchild</label>
             </li>
+            <br>
             <li class="checkboxchild5">
               <input type="checkbox" name="household" id="Sibling" value="P029012">
               <label for="Sibling">Sibling</label>
             </li>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="checkboxchild5">
               <input type="checkbox" name="household" id="Parent" value="P029013">
               <label for="Parent">Parent</label>
             </li>
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <li class="checkboxchild5">
               <input type="checkbox" name="household" id="Parent-in-Law" value="P029014">
               <label for="Parent-in-Law">Parent-in-Law</label>
             </li>
+            <br>
             <li class="checkboxchild5">
                <input type="checkbox" name="household" id="Child-in-Law" value="P029015">
                <label for="Child-in-Law">Child-in-Law</label>
@@ -380,6 +418,7 @@
                <input type="checkbox" name="household" id="Other Relatives" value="P029016">
                <label for="Other Relatives">Other Relatives</label>
             </li>
+            <br>
             <li class="checkboxchild5">
                <input type="checkbox" name="household" id="Non-Relatives" value="P029017">
                <label for="Non-Relatives">Non-Relatives</label>
@@ -388,6 +427,7 @@
                <input type="checkbox" name="household" id="Non-Family Household" value="P029018">
                <label for="Non-Family Household">Non-Family Household</label>
             </li>
+            <br>
             <li class="checkboxchild5">
                <input type="checkbox" name="household" id="Institutionalized" value="P029027">
                <label for="Institutionalized">Institutionalized</label>
@@ -401,15 +441,15 @@
       </ul>
     </div>
     <div class="buttons">
-    <button type="button" name="selectallmap" id="selectallmap">Check Map</button>
-    <button type="button" name="unselectallmap" id="unselectallmap">Uncheck Map</button>
+    <button type="button" name="selectallmap" id="selectallmap" style="width: 100px;margin-left:10px">Check Map</button>
+    <button type="button" name="unselectallmap" id="unselectallmap" style="width: 100px;margin-left:0px">Uncheck Map</button>
     <br>
     <br>
-    <button type="button" name="selectall" id="selectall">Check All</button>
-    <button type="button" name="unselectall" id="unselectall">Uncheck All</button>
+    <button type="button" name="selectall" id="selectall" style="width: 100px;margin-left:10px">Check All</button>
+    <button type="button" name="unselectall" id="unselectall" style="width: 100px;margin-left:0px">Uncheck All</button>
     <br>
     <br>
-    <input type="submit" class="submit" value="Search">
+    <input type="submit" class="submit" value="Search" style="width: 350px;margin-left:10px;height:50px;margin-bottom:10px">
     </div>  
   </form>
 </div>
@@ -420,23 +460,23 @@
 
 <div class="resultsContainer">
   <div class="resultsContainer1">
-    <div class="resultsStates1"></div>
+    <div class="resultsStates"></div>
     <div class="resultsRaces"></div>
   </div>
   <div class="resultsContainer2">
-    <div class="resultsStates2"></div>
+    <div class="resultsStates"></div>
     <div class="resultsSizes"></div>
   </div>
   <div class="resultsContainer3">
-    <div class="resultsStates3"></div>
+    <div class="resultsStates"></div>
     <div class="resultsASM"></div>
   </div>
   <div class="resultsContainer4">
-    <div class="resultsStates4"></div>
+    <div class="resultsStates"></div>
     <div class="resultsASF"></div>
   </div>
   <div class="resultsContainer5">
-    <div class="resultsStates5"></div>
+    <div class="resultsStates"></div>
     <div class="resultsHousehold"></div>
   </div>
 </div>
@@ -445,59 +485,3 @@
 <script src="index.js"></script>
 </body>
 </html>
-
-<!-- <div class="byState">
-      <label>Choose State:</label><br><select class="state" name="state">
-      <option value="01">Alabama</option>
-      <option value="02">Alaska</option>
-      <option value="04">Arizona</option>
-      <option value="05">Arkansas</option>
-      <option value="06">California</option>
-      <option value="08">Colorado</option>
-      <option value="09">Connecticut</option>
-      <option value="10">Delaware</option>
-      <option value="11">District of Coloumbia</option>
-      <option value="12">Florida</option>
-      <option value="13">Georgia</option>
-      <option value="15">Hawaii</option>
-      <option value="16">Idaho</option>
-      <option value="17">Illinois</option>
-      <option value="18">Indiana</option>
-      <option value="19">Iowa</option>
-      <option value="20">Kansas</option>
-      <option value="21">Kentucky</option>
-      <option value="22">Louisiana</option>
-      <option value="23">Maine</option>
-      <option value="24">Maryland</option>
-      <option value="25">Massachusetts</option>
-      <option value="26">Michigan</option>
-      <option value="27">Minnesota</option>
-      <option value="28">Mississippi</option>
-      <option value="29">Missouri</option>
-      <option value="30">Montana</option>
-      <option value="31">Nebraska</option>
-      <option value="32">Nevada</option>
-      <option value="33">New Hampshire</option>
-      <option value="34">New Jersey</option>
-      <option value="35">New Mexico</option>
-      <option value="36">New York</option>
-      <option value="37">North Carolina</option>
-      <option value="38">North Dakota</option>
-      <option value="39">Ohio</option>
-      <option value="40">Oklahoma</option>
-      <option value="41">Oregon</option>
-      <option value="42">Pennsylvania</option>
-      <option value="44">Rhode Island</option>
-      <option value="45">South Carolina</option>
-      <option value="46">South Dakota</option>
-      <option value="47">Tennessee</option>
-      <option value="48">Texas</option>
-      <option value="49">Utah</option>
-      <option value="50">Vermont</option>
-      <option value="51">Virginia</option>
-      <option value="53">Washington</option>
-      <option value="54">West Virginia</option>
-      <option value="55">Wisconsin</option>
-      <option value="56">Wyoming</option>
-      </select>
-    </div>-->

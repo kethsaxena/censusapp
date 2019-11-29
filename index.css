@@ -41,40 +41,34 @@ body {
   outline: 0.1px black solid;
   display: flex;
   text-align: center;
-  visibility: hidden;
 }
 
 .resultsContainer2 {
   outline: 0.1px black solid;
   display: flex;
   text-align: center;
-  visibility: hidden;
 }
 
 .resultsContainer3 {
   outline: 0.1px black solid;
   display: flex;
   text-align: center;
-  visibility: hidden;
 }
 
 .resultsContainer4 {
   outline: 0.1px black solid;
   display: flex;
   text-align: center;
-  visibility: hidden;
 }
 
 .resultsContainer5 {
   outline: 0.1px black solid;
   display: flex;
   text-align: center;
-  visibility: hidden;
 }
 
 .resultsStates {
   outline: 0.1px red solid;
-  padding: 22.5px 0 0 0;
 }
 
 .resultsRaces {
@@ -89,8 +83,8 @@ body {
   outline: 0.1px orange solid;
 }
 
-.resultsASM {
-  outline: 0.1px greenyellow solid;
+.resultsASF {
+  outline: 0.1px teal solid;
 }
 
 .resultsHousehold {

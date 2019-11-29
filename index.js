@@ -222,7 +222,11 @@ function displayResults(responseJson) {
 
   console.log(responseJson);
 
-  $('.resultsStates').empty();
+  $('.resultsStates1').empty();
+  $('.resultsStates2').empty();
+  $('.resultsStates3').empty();
+  $('.resultsStates4').empty();
+  $('.resultsStates5').empty();
   $('.resultsRaces').empty();
   $('.resultsSizes').empty();
   $('.resultsASM').empty();
@@ -230,12 +234,17 @@ function displayResults(responseJson) {
   $('.resultsHousehold').empty();
 
   $(function printResults() {
-    let tableStates = `<table>`;
     let tableRaces = `<table><tr>`;
     let tableSizes = `<table><tr>`;
     let tableASM = `<table><tr>`;
     let tableASF = `<table><tr>`;
     let tableHousehold = `<table><tr>`;
+
+    let tableStates1 = `<table><tr><th>Race</th></tr>`;
+    let tableStates2 = `<table><tr><th>Size</th></tr>`;
+    let tableStates3 = `<table><tr><th>Age(M)</th></tr>`;
+    let tableStates4 = `<table><tr><th>Age(F)</th></tr>`;
+    let tableStates5 = `<table><tr><th>Occupants</th></tr>`;
 
     let racesValues = [];
     let sizesValues = [];
@@ -255,11 +264,13 @@ function displayResults(responseJson) {
         $.map(whichAS, function(p) {
         tableASF += `<th>${p}</th>`;
     })};
-
-    
-
+  
     $.map(whichState, function(k) {
-      tableStates += `<tr><th>${k}</th></tr>`;
+      tableStates1 += `<tr><th>${k}</th></tr>`;
+      tableStates2 += `<tr><th>${k}</th></tr>`;
+      tableStates3 += `<tr><th>${k}</th></tr>`;
+      tableStates4 += `<tr><th>${k}</th></tr>`;
+      tableStates5 += `<tr><th>${k}</th></tr>`;
     });
     $.map(whichRace, function(n) {
       tableRaces += `<th>${n}</th>`;
@@ -292,7 +303,6 @@ function displayResults(responseJson) {
     let numCheckedRacesSizesAS = (numCheckedRacesSizes + numCheckedAS);
     let numCheckedRacesSizesASASM = (numCheckedRacesSizesAS + numCheckedASM);
     let numCheckedRacesSizesASASMASF = (numCheckedRacesSizesASASM + numCheckedASF);
-    let numCheckedASMASF = (numCheckedASM + numCheckedASF);
 
     for (let i = 1; i < responseJson.length; i++) {
       let response = responseJson[i];
@@ -339,14 +349,22 @@ function displayResults(responseJson) {
     }
   
     tableRaces += `</table>`;
-    tableStates += `</table>`;
+    tableStates1 += `</table>`;
+    tableStates2 += `</table>`;
+    tableStates3 += `</table>`;
+    tableStates4 += `</table>`;
+    tableStates5 += `</table>`;
     tableSizes += `</table>`;
     tableASM += `</table>`;
     tableASF += `</table>`;
     tableHousehold += `</table>`;
 
     console.log(tableRaces);
-    console.log(tableStates);
+    console.log(tableStates1);
+    console.log(tableStates2);
+    console.log(tableStates3);
+    console.log(tableStates4);
+    console.log(tableStates5);
     console.log(tableSizes);
     console.log(tableASM);
     console.log(tableASF);
@@ -383,7 +401,11 @@ function displayResults(responseJson) {
     }
 
     $('.resultsRaces').append(tableRaces);
-    $('.resultsStates').append(tableStates);
+    $('.resultsStates1').append(tableStates1);
+    $('.resultsStates2').append(tableStates2);
+    $('.resultsStates3').append(tableStates3);
+    $('.resultsStates4').append(tableStates4);
+    $('.resultsStates5').append(tableStates5);
     $('.resultsSizes').append(tableSizes);
     $('.resultsASM').append(tableASM);
     $('.resultsASF').append(tableASF);

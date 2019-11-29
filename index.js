@@ -371,33 +371,33 @@ function displayResults(responseJson) {
     console.log(tableHousehold);
 
     if (numCheckedRaces != 0) {
-      $('.resultsContainer1').css('visibility', 'visible');
+      $('.resultsContainer1').show();
     } else {
-      $('.resultsContainer1').css('visibility', 'hidden');
+      $('.resultsContainer1').hide();
     }
 
     if (numCheckedSizes != 0) {
-      $('.resultsContainer2').css('visibility', 'visible');
+      $('.resultsContainer2').show();
     } else {
-      $('.resultsContainer2').css('visibility', 'hidden');
+      $('.resultsContainer2').hide()
     }
     
     if (numCheckedASM != 0) {
-      $('.resultsContainer3').css('visibility', 'visible');
+      $('.resultsContainer3').show();
     } else {
-      $('.resultsContainer3').css('visibility', 'hidden');
+      $('.resultsContainer3').hide()
     }
 
     if (numCheckedASF != 0) {
-      $('.resultsContainer4').css('visibility', 'visible');
+      $('.resultsContainer4').show();
     } else {
-      $('.resultsContainer4').css('visibility', 'hidden');
+      $('.resultsContainer4').hide()
     }
 
     if (numCheckedHousehold != 0) {
-      $('.resultsContainer5').css('visibility', 'visible');
+      $('.resultsContainer5').show();
     } else {
-      $('.resultsContainer5').css('visibility', 'hidden');
+      $('.resultsContainer5').hide()
     }
 
     $('.resultsRaces').append(tableRaces);

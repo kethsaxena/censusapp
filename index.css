@@ -21,11 +21,11 @@ body {
   padding-left: 250px
 }
 
-.bySex {
+.bySize {
   outline: 0.1px black solid;
 }
 
-.byAge {
+.byAS {
   outline: 0.1px black solid;
 }
 
@@ -61,6 +61,12 @@ body {
   text-align: center;
 }
 
+.resultsContainer5 {
+  outline: 0.1px black solid;
+  display: flex;
+  text-align: center;
+}
+
 .resultsStates {
   outline: 0.1px red solid;
   padding: 22.5px 0 0 0;
@@ -74,8 +80,12 @@ body {
   outline: 0.1px blue solid;
 }
 
-.resultsAS {
+.resultsASM {
   outline: 0.1px orange solid;
+}
+
+.resultsASM {
+  outline: 0.1px greenyellow solid;
 }
 
 .resultsHousehold {
@@ -137,19 +147,6 @@ path:hover, circle:hover {
   width:"50";
   height:"10"
 }
-
-.byRace{
-  font-family: 'Open Sans', regular;
-}
-
-.bySex{
-  font-family: 'Open Sans', regular;
-}
-
-.checkboxparent1{
-  font-family: 'Open Sans'
-}
-
 
 .buttons{
   margin: auto;

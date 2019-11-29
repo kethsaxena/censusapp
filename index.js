@@ -305,7 +305,7 @@ function displayResults(responseJson) {
     let numCheckedRacesSizesASASMASF = (numCheckedRacesSizesASASM + numCheckedASF);
 
     for (let i = 1; i < responseJson.length; i++) {
-      let response = responseJson[i];
+      response = responseJson[i];
       racesValues.push(response.slice(0, numCheckedRaces))
       sizesValues.push(response.slice(numCheckedRaces, numCheckedRacesSizes))
       ASValues.push(response.slice(numCheckedRacesSizes, numCheckedRacesSizesAS));
@@ -357,6 +357,13 @@ function displayResults(responseJson) {
     tableASF += `</table>`;
     tableHousehold += `</table>`;
 
+    console.log(responseJson);
+    console.log(response);
+    console.log(racesValues);
+    console.log(ASValues);
+    console.log(ASMValues);
+    console.log(ASFValues);
+    console.log(householdValues);
     console.log(tableRaces);
     console.log(tableStates1);
     console.log(tableStates2);

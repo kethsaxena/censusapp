@@ -41,30 +41,35 @@ body {
   outline: 0.1px black solid;
   display: flex;
   text-align: center;
+  visibility: hidden;
 }
 
 .resultsContainer2 {
   outline: 0.1px black solid;
   display: flex;
   text-align: center;
+  visibility: hidden;
 }
 
 .resultsContainer3 {
   outline: 0.1px black solid;
   display: flex;
   text-align: center;
+  visibility: hidden;
 }
 
 .resultsContainer4 {
   outline: 0.1px black solid;
   display: flex;
   text-align: center;
+  visibility: hidden;
 }
 
 .resultsContainer5 {
   outline: 0.1px black solid;
   display: flex;
   text-align: center;
+  visibility: hidden;
 }
 
 .resultsStates {

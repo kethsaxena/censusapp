@@ -352,6 +352,36 @@ function displayResults(responseJson) {
     console.log(tableASF);
     console.log(tableHousehold);
 
+    if (numCheckedRaces != 0) {
+      $('.resultsContainer1').css('visibility', 'visible');
+    } else {
+      $('.resultsContainer1').css('visibility', 'hidden');
+    }
+
+    if (numCheckedSizes != 0) {
+      $('.resultsContainer2').css('visibility', 'visible');
+    } else {
+      $('.resultsContainer2').css('visibility', 'hidden');
+    }
+    
+    if (numCheckedASM != 0) {
+      $('.resultsContainer3').css('visibility', 'visible');
+    } else {
+      $('.resultsContainer3').css('visibility', 'hidden');
+    }
+
+    if (numCheckedASF != 0) {
+      $('.resultsContainer4').css('visibility', 'visible');
+    } else {
+      $('.resultsContainer4').css('visibility', 'hidden');
+    }
+
+    if (numCheckedHousehold != 0) {
+      $('.resultsContainer5').css('visibility', 'visible');
+    } else {
+      $('.resultsContainer5').css('visibility', 'hidden');
+    }
+
     $('.resultsRaces').append(tableRaces);
     $('.resultsStates').append(tableStates);
     $('.resultsSizes').append(tableSizes);

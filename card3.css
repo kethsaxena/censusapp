@@ -17,11 +17,9 @@ body{
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     padding: 15px;
     margin: 15px 0;
-    width: 95%;
-    justify-content: center;
+    width: 65%;
     }
     
     h3 {
@@ -39,12 +37,14 @@ body{
         border: 1.5px solid black;
         border-radius: 15px;
         padding: 0px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;    
+        display: block;
         font-family: 'Solway', serif;
         text-align: center;
           
+      }
+
+      ul #gVal{
+        display: inline;
       }
     
       ul img{

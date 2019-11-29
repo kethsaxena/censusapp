@@ -310,8 +310,8 @@ function displayResults(responseJson) {
       sizesValues.push(response.slice(numCheckedRaces, numCheckedRacesSizes))
       ASValues.push(response.slice(numCheckedRacesSizes, numCheckedRacesSizesAS));
       ASMValues.push(response.slice(numCheckedRacesSizesAS, numCheckedRacesSizesASASM));
-      ASFValues.push(response.slice(numCheckedRacesSizesASASM, numCheckedRacesSizesASASMASF))
-      householdValues.push(response.slice(numCheckedRacesSizesASASMASF, -1))
+      ASFValues.push(response.slice(numCheckedRacesSizesASASM, numCheckedRacesSizesASASMASF));
+      householdValues.push(response.slice(numCheckedRacesSizesASASMASF, -1));
     };
 
     if (numCheckedAS != 0 && numCheckedASM != 0 && numCheckedASF != 0) {
@@ -321,9 +321,7 @@ function displayResults(responseJson) {
       tableASM += `<tr><td>${numberWithCommas(ASValues)}</td>`
     } else if (numCheckedAS != 0 && numCheckedASM == 0 && numCheckedASF != 0) {
       tableASF += `<tr><td>${numberWithCommas(ASValues)}</td>`
-    }
-    
-    else {
+    } else {
       tableASM += `<tr>`;
       tableASF += `<tr>`;
     }
